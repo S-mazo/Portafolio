@@ -102,7 +102,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (favicon) {
         let isBlack = true; // Starts with black favicon
         const toggleFavicon = () => {
-            favicon.href = isBlack ? 'img/Cuervo black.png' : 'img/cuervo.png';
+            favicon.href = isBlack ? 'img/Cuervo black.png' : 'img/Cuervo.png';
             isBlack = !isBlack; // Alterna el estado
         };
         // Changes every 2 seconds
