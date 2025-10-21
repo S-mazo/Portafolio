@@ -2,6 +2,9 @@
 
 ¡Bienvenido a mi portafolio! Soy Samuel Mazo, un apasionado estudiante de ingeniería informática con un profundo interés en la ciberseguridad, la inteligencia artificial y la automatización. Este proyecto es mi rincón personal en la web, donde puedes conocer más sobre mí, mis habilidades y los proyectos en los que he trabajado.
 
+**Nota:** Si quieres echarle un vistazo a la página web sin necesidad de descargarla, haz click ***[aquí](https://s-mazo.github.io/Portafolio)***.
+
+
 ## Sobre el Proyecto
 
 Este portafolio es una página web interactiva diseñada para mostrar mi trayectoria académica y profesional. Aquí encontrarás información sobre mi formación, mi experiencia en diversos proyectos y las tecnologías que domino.
