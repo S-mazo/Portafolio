@@ -41,6 +41,7 @@ Este portafolio es una página web interactiva diseñada para mostrar mi trayect
 Puedes encontrarme en:
 
 [![Perfil Smazo](https://img.shields.io/badge/Github-S--mazo-black)](https://github.com/S-mazo)
+<br>
 [![Discord](https://img.shields.io/badge/Discord-who3913-blue)](https://discord.com/users/776998213310742548)
 
 ¡Gracias por tu visita!
