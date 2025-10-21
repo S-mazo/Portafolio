@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S-mazo</title>
+    <!-- Iconito del cuervo -->
+    <link id="favicon" rel="icon" type="image/png" href="img/Cuervo black.png">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="crow-overlay"><svg viewBox="0 0 1257.000000 1287.000000">
+<g transform="translate(0.000000,1287.000000) scale(0.100000,-0.100000)" stroke="none">
+<path d="M6860 12853 c-111 -11 -263 -39 -395 -73 -800 -203 -1587 -821 -1936
+-1520 -84 -169 -114 -276 -204 -725 -211 -1058 -388 -1654 -520 -1748 -22 -16
+-168 -104 -325 -194 -1082 -628 -2107 -1332 -2865 -1967 -171 -144 -415 -358
+-517 -455 l-88 -83 0 -3044 0 -3044 3884 0 3884 0 123 118 c370 354 688 804
+983 1392 532 1062 866 2345 968 3715 16 223 16 934 0 1130 -72 859 -258 1452
+-579 1848 -67 81 -142 151 -243 226 -157 115 -279 274 -349 455 -62 161 -76
+237 -75 416 1 138 4 165 28 245 36 122 149 349 231 465 187 264 428 487 760
+705 198 130 336 206 775 425 929 465 1639 867 1963 1113 114 86 222 198 175
+182 -72 -25 -1231 -322 -1773 -454 -731 -178 -1893 -446 -1902 -438 -1 2 97
+36 220 75 987 317 1999 566 3150 777 l338 61 -49 46 c-94 88 -261 148 -517
+184 -182 26 -779 27 -1035 1 -623 -63 -1131 -157 -1776 -328 l-190 -50 -170
+76 c-558 254 -1039 407 -1447 460 -107 14 -424 19 -527 8z"/>
+</g>
+</svg></div>
+    <!-- Particles.js Container -->
+    <div id="particles-js"></div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">S-mazo</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#about">Información</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#education">Estudios</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#experience">Experiencia</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">Habilidades</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#interests">Intereses</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container content-container">
+        <div id="intro-screen">
+            <!-- Personal Info -->
+            <section id="about">
+                <div class="row">
+                    <div class="col-md-8 mx-auto text-center">
+                        <h1 class="display-4">S-mazo</h1>
+                        <p class="lead">Estudiante de Ingeniería informática</p>
+                        <p class="mt-4">¡Hola!, soy Samuel Mazo, un joven de 19 años, habitante de Caldas, Antioquia, apasionado por la construcción de universos digitales y la resolución de problemas complejos. Desde pequeño me ha fascinado descubrir el porqué de las cosas, lo que me llevó a explorar el mundo de la informática. Soy una persona creativa, inquieta por el conocimiento, que intenta buscar patrones automatizables en las rutinas; también sé cómo desenvolverme en un equipo de trabajo, explotando las capacidades de cada miembro para entregar el mejor resultado posible.</p>
+
+                    </div>
+                </div>
+            </section>
+
+            <div class="text-center my-5">
+                <button id="scroll-to-discover-btn" class="btn btn-neon">Descubre mi potencial <i class="fas fa-chevron-down"></i></button>
+            </div>
+        </div>
+
+        <!-- Education -->
+        <section id="education" class="py-5">
+            <h2 class="text-center mb-4">Estudios</h2>
+            <div class="row">
+                <div class="col-md-8 mx-auto">
+                    <div id="unilasallista-card" class="card-cyber">
+                        <div class="card-body">
+                            <h5 class="card-title">Ingeniería informática</h5>
+                            <h6 class="card-subtitle mb-2">Corporación universitaria Unilasallista</h6>
+                            <p class="card-text">2020 - Hoy</p>
+                            <p>Actualmente, cursando el 6to semestre, enfocado en ampliar conocimientos de diferentes tecnologías, estructuras de datos y sistemas operativos, con un interés creciente en el desarrollo de software de alto rendimiento, la automatización de tareas y la inteligencia artificial.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8 mx-auto">
+                    <div id="udemy-card" class="card-cyber">
+                        <div class="card-body">
+                            <h5 class="card-title">Python TOTAL</h5>
+                            <h6 class="card-subtitle mb-2">Udemy</h6>
+                            <p class="card-text">2024 - Hoy</p>
+                            <p>A punto de terminar este curso intensivo de Python que abarca desde los fundamentos hasta temas avanzados como la programación orientada a objetos, manejo de archivos, bases de datos y desarrollo web con frameworks. Práctico y enfocado en proyectos reales.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience -->
+        <section id="experience" class="py-5 hidden-section">
+            <h2 class="text-center mb-4">Proyectos y Experiencia</h2>
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div id="faceid-card" class="card-cyber h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">FaceID</h5>
+                            <p>Un proyecto para Unilasallista que con ayuda de librerías de python como face-recognition y opencv reconoce datos biométricos y los compara con una base de datos local (sin cifrar)</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div id="cibermentoria-card" class="card-cyber h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">CibermentorIA</h5>
+                            <p>Un proyecto que con ayuda de n8n y la api de gemini, discord y telegram provee un chatbot educativo que promete ayudar a los usuarios a ampliar sus conocimientos en ciberseguridad por medio de un sistema de puntos y preguntas hechas con inteligencia artificial</p>
+                        </div>
+                    </div>
+                </div>
+                 <div class="col-md-6">
+                    <div id="dc-bot-card" class="private-project card-cyber h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Discord bot</h5>
+                            <p>Actualmente es un proyecto que prefiero mantener privado, pero en resumen es un bot que su principal objetivo es reproducir música. Se conecta a youtube usando librerías como yt-dlp y youtubesearchpython y maneja la reproducción de las canciones con un sistema de colas que se almacena en una base de datos no relacional</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div id="portfolio-card" class="card-cyber h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Portafolio Personal</h5>
+                            <p>Este mismo sitio. Un proyecto personal para experimentar con diseños, animaciones con JavaScript y la librería particles.js, todo sobre una estructura responsive con Bootstrap.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div id="webpage-crud-card" class="card-cyber h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Webpage-Crud</h5>
+                            <p>Un sitio web desarrollado con python con un estilo neuromórfico que funciona como CRUD de una base de datos local</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div id="urbus-card" id="webpage-crud-card" class="private-project card-cyber h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Urbus</h5>
+                            <p>Un proyecto que aún está en desarrollo y desafortunadamente (por el momento) está privado. pero dando un resumen general, el MVP del proyecto será una página web con el stack MERN que nos permitirá analizar datos entregados por un hardware con la ayuda de varias APIs</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills -->
+        <section id="skills" class="py-5 hidden-section">
+            <h2 class="text-center mb-5">Habilidades</h2>
+            <div class="row g-4">
+                <!-- Skill Item -->
+                <div class="col-md-6"><div class="skill"><i class="fa-brands fa-python skill-icon"></i><span>Python</span><div class="progress"><div class="progress-bar" role="progressbar" style="width: 90%;" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">90%</div></div></div></div>
+                <div class="col-md-6"><div class="skill"><i class="fa-brands fa-html5 skill-icon"></i><span>HTML</span><div class="progress"><div class="progress-bar" role="progressbar" style="width: 85%;" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">85%</div></div></div></div>
+                <div class="col-md-6"><div class="skill"><i class="fa-solid fa-database skill-icon"></i><span>SQL</span><div class="progress"><div class="progress-bar" role="progressbar" style="width: 80%;" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">80%</div></div></div></div>
+                <div class="col-md-6"><div class="skill"><i class="fa-brands fa-css3-alt skill-icon"></i><span>CSS</span><div class="progress"><div class="progress-bar" role="progressbar" style="width: 80%;" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">80%</div></div></div></div>
+                <div class="col-md-6"><div class="skill"><i class="fa-brands fa-git-alt skill-icon"></i><span>GIT</span><div class="progress"><div class="progress-bar" role="progressbar" style="width: 80%;" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">80%</div></div></div></div>
+                <div class="col-md-6"><div class="skill"><i class="fa-solid fa-database skill-icon"></i><span>PostgreSQL</span><div class="progress"><div class="progress-bar" role="progressbar" style="width: 80%;" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">80%</div></div></div></div>
+                <div class="col-md-6"><div class="skill"><i class="fa-solid fa-sitemap skill-icon"></i><span>N8N</span><div class="progress"><div class="progress-bar" role="progressbar" style="width: 80%;" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">80%</div></div></div></div>
+                <div class="col-md-6"><div class="skill"><i class="fa-solid fa-leaf skill-icon"></i><span>MongoDB</span><div class="progress"><div class="progress-bar" role="progressbar" style="width: 75%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">75%</div></div></div></div>
+                <div class="col-md-6"><div class="skill"><i class="fa-brands fa-js skill-icon"></i><span>JavaScript</span><div class="progress"><div class="progress-bar" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">70%</div></div></div></div>
+                <div class="col-md-6"><div class="skill"><i class="fa-brands fa-php skill-icon"></i><span>PHP</span><div class="progress"><div class="progress-bar" role="progressbar" style="width: 65%;" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100">65%</div></div></div></div>
+                <div class="col-md-6"><div class="skill"><i class="fa-brands fa-java skill-icon"></i><span>Java</span><div class="progress"><div class="progress-bar" role="progressbar" style="width: 60%;" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">60%</div></div></div></div>
+                <div class="col-md-6"><div class="skill"><i class="fa-brands fa-linux skill-icon"></i><span>GNU/Linux</span><div class="progress"><div class="progress-bar" role="progressbar" style="width: 60%;" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">60%</div></div></div></div>
+            </div>
+        </section>
+
+        <!-- Interests -->
+        <section id="interests" class="py-5 hidden-section">
+            <h2 class="text-center mb-4">Áreas de Interés Profesional</h2>
+            <div class="row">
+                <div class="col-md-8 mx-auto">
+                    <ul class="list-unstyled text-center">
+                        <li><i class="fa-solid fa-microchip"></i> Inteligencia Artificial</li>
+                        <li><i class="fa-solid fa-shield-halved"></i> Ciberseguridad Defensiva</li>
+                        <li><i class="fa-solid fa-square-poll-vertical"></i> Automatización de procesos</li>
+                        <li><i class="fa-solid fa-robot"></i> Desarrollo de bots (discord, telegram)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-center py-4">
+        <p>&copy; 2025 Samuel Mazo. Todos los derechos reservados. Diseñado con <i class="fas fa-heart" style="color: var(--neon-red);"></i> y Código.</p>
+        <div class="social-icons mt-3">
+            <a href="https://github.com/S-mazo" target="_blank" class="text-decoration-none mx-2" style="color: var(--neon-blue);"><i class="fab fa-github fa-2x"></i></a>
+            <a href="https://discord.com/users/776998213310742548" target="_blank" class="text-decoration-none mx-2" style="color: var(--neon-blue);"><i class="fab fa-discord fa-2x"></i></a>
+        </div></p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

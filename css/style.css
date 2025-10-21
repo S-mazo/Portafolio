@@ -1,0 +1,244 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Rajdhani:wght@400;700&display=swap');
+
+:root {
+    --dark-bg: #0a0a1a;
+    --neon-blue: #00c2ff;
+    --neon-red: #ff003c;
+    --neon-purple: #a900ff;
+    --text-color: #e0e0e0;
+    --border-color: rgba(0, 194, 255, 0.3);
+}
+
+body {
+    background-color: var(--dark-bg);
+    color: var(--text-color);
+    font-family: 'Rajdhani', sans-serif;
+    background-size: cover;
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+#crow-overlay {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 20vw; /* Responsive width */
+    height: auto; /* Maintain aspect ratio */
+    max-width: 300px; /* Max size */
+    max-height: 300px; /* Max size */
+    z-index: 100;
+    pointer-events: none;
+}
+
+#crow-overlay svg {
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+#crow-overlay svg path {
+    fill: var(--text-color);
+    pointer-events: auto;
+    cursor: pointer; 
+    transition: filter 0.3s ease; /* Move transition here */
+}
+
+#crow-overlay svg:hover {
+    filter: drop-shadow(0 0 15px var(--neon-red));
+    
+}
+#crow-overlay svg path:hover {
+    fill: black; 
+    transition: filter 0.3s ease, fill 0.5s ease, stroke 0.5s ease;
+
+}
+
+#particles-js {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.content-container {
+    position: relative;
+    z-index: 1;
+    padding-top: 50px;
+}
+
+.navbar {
+    background-color: rgba(10, 10, 26, 0.8);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.navbar-brand {
+    font-family: 'Orbitron', sans-serif;
+    color: var(--neon-blue) !important;
+    text-shadow: 0 0 5px var(--neon-blue);
+}
+
+.nav-link {
+    color: var(--text-color) !important;
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--neon-red) !important;
+    text-shadow: 0 0 5px var(--neon-red);
+}
+
+h1, h2, h5 {
+    font-family: 'Orbitron', sans-serif;
+    color: var(--neon-blue);
+    text-shadow: 0 0 8px rgba(0, 194, 255, 0.7);
+}
+
+/* Intro Screen for initial display */
+#intro-screen {
+    height: 100vh; /* Full viewport height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative; /* For z-index context */
+    z-index: 2; /* Above particles, below navbar */
+    padding-top: 80px; /* To account for fixed navbar */
+}
+
+section {
+    padding: 60px 0;
+}
+
+.private-project{
+    cursor: not-allowed !important;
+}
+/* Scroll to Discover Button */
+.btn-neon {
+    background-color: transparent;
+    border: 2px solid var(--neon-blue);
+    color: var(--neon-blue);
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px var(--neon-blue);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.btn-neon:hover {
+    color: var(--dark-bg);
+    background-color: var(--neon-blue);
+    box-shadow: 0 0 20px var(--neon-blue), 0 0 40px var(--neon-blue);
+    border-color: var(--neon-blue);
+}
+
+.btn-neon i {
+    margin-left: 10px;
+    transition: transform 0.3s ease;
+}
+
+.btn-neon:hover i {
+    transform: translateY(5px);
+}
+
+/* Hidden/Visible Sections for Scroll Reveal */
+.hidden-section {
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: visibility 0s 1.5s, opacity 1.5s ease-out, transform 1.5s ease-out; /* Delay visibility change */
+}
+
+.visible-section {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+    transition: visibility 0s, opacity 1.5s ease-out, transform 1.5s ease-out;
+}
+
+.card-cyber {
+    background-color: rgba(15, 23, 42, 0.7);
+    border: 1px solid var(--border-color);
+    border-radius: 0;
+    padding: 20px;
+    backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px rgba(0, 194, 255, 0.1);
+    cursor: pointer;
+}
+
+.card-cyber:hover {
+    border-color: var(--neon-red);
+    box-shadow: 0 0 25px rgba(255, 0, 60, 0.3);
+}
+
+.card-cyber .card-title {
+    color: var(--neon-red);
+}
+
+.card-cyber .card-subtitle {
+    color: var(--neon-purple);
+}
+
+/* Skills Section */
+.skill {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.skill-icon {
+    font-size: 1.8rem;
+    color: var(--neon-blue);
+    margin-right: 15px;
+    width: 30px;
+    text-align: center;
+}
+
+.skill span {
+    font-weight: bold;
+    margin-right: 15px; /* Spacing between text and progress bar */
+}
+
+.progress {
+    flex-grow: 1;
+    height: 20px;
+    background-color: rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--border-color);
+    border-radius: 0;
+}
+
+.progress-bar {
+    background-color: var(--neon-purple);
+    font-weight: bold;
+    text-shadow: 1px 1px 2px black;
+    box-shadow: 0 0 10px var(--neon-purple);
+}
+
+/* Interests */
+#interests ul li {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+}
+
+#interests ul li i {
+    color: var(--neon-red);
+    margin-right: 10px;
+}
+
+footer {
+    background-color: rgba(10, 10, 26, 0.8);
+    border-top: 1px solid var(--border-color);
+    color: var(--text-color);
+    font-size: 0.9rem;
+}
