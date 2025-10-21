@@ -166,4 +166,11 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    const urbusCard = document.getElementById('urbus-card');
+    if (urbusCard) {
+        urbusCard.addEventListener('click', () => {
+            alert('Este proyecto es privado por el momento. En un futuro cercano podré compartir más detalles al respecto.');
+        });
+    }
+
 });
