@@ -1,4 +1,20 @@
 document.addEventListener('DOMContentLoaded', function () {
+    // Actualizar el año automáticamente
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Calcular y actualizar la edad automáticamente (nacimiento: 18 de abril)
+    const birthDate = new Date(1, 3, 18); // Mes es 0-indexado, así que 3 = abril
+    const today = new Date();
+    let age = today.getFullYear() - 2006;
+    
+    // Si aún no ha llegado su cumpleaños este año
+    if (today.getMonth() < birthDate.getMonth() || 
+        (today.getMonth() === birthDate.getMonth() && today.getDate() < birthDate.getDate())) {
+        age--;
+    }
+    
+    document.getElementById('age').textContent = age;
+
     particlesJS('particles-js', {
         "particles": {
             "number": {
@@ -120,7 +136,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const udemyCard = document.getElementById('udemy-card');
     if (udemyCard) {
         udemyCard.addEventListener('click', () => {
-            window.open('https://www.udemy.com/course/python-total');
+            window.open('https://ude.my/UC-f835525f-589e-4913-bad4-b30858bacba8');
         });
     }
 
