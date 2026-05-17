@@ -1,20 +1,4 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // Actualizar el año automáticamente
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Calcular y actualizar la edad automáticamente (nacimiento: 18 de abril)
-    const birthDate = new Date(1, 3, 18); // Mes es 0-indexado, así que 3 = abril
-    const today = new Date();
-    let age = today.getFullYear() - 2006;
-    
-    // Si aún no ha llegado su cumpleaños este año
-    if (today.getMonth() < birthDate.getMonth() || 
-        (today.getMonth() === birthDate.getMonth() && today.getDate() < birthDate.getDate())) {
-        age--;
-    }
-    
-    document.getElementById('age').textContent = age;
-
     particlesJS('particles-js', {
         "particles": {
             "number": {
