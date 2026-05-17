@@ -1,4 +1,18 @@
 document.addEventListener('DOMContentLoaded', function () {
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const birthDate = new Date(2006, 3, 18); 
+    const today = new Date();
+    let age = today.getFullYear() - birthDate.getFullYear();
+    
+    if (today.getMonth() < birthDate.getMonth() || 
+        (today.getMonth() === birthDate.getMonth() && today.getDate() < birthDate.getDate())) {
+        age--;
+    }
+    
+    document.getElementById('age').textContent = age;
+
     particlesJS('particles-js', {
         "particles": {
             "number": {
