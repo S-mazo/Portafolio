@@ -162,7 +162,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const cibermentoriaCard = document.getElementById('cibermentoria-card');
     if (cibermentoriaCard) {
         cibermentoriaCard.addEventListener('click', () => {
-            window.open('https://github.com/S-mazo/CibermentorIA/tree/n8n');
+            window.open('https://github.com/S-mazo/CibermentorIA');
         });
     }
 
