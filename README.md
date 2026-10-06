@@ -16,7 +16,7 @@ Este portafolio es una página web interactiva diseñada para mostrar mi trayect
 - **Secciones Detalladas:**
     - **Información:** Un resumen sobre quién soy y mis pasiones.
     - **Estudios:** Detalles sobre mi formación académica.
-    - **Experiencia:** Un vistazo a los proyectos en los que he participado.
+    - **Proyectos:** Un vistazo a los proyectos en los que he participado.
     - **Habilidades:** Un listado de las tecnologías y herramientas que manejo.
     - **Intereses:** Las áreas de la informática que más me llaman la atención.
 
@@ -35,15 +35,17 @@ Este portafolio es una página web interactiva diseñada para mostrar mi trayect
 
 - [**FaceID:** Reconocimiento biométrico con Python.](https://github.com/S-mazo/FaceID)
 - [**CibermentorIA:** Un chatbot educativo sobre ciberseguridad.](https://github.com/S-mazo/CibermentorIA/tree/n8n)
-- **Discord bot:** Un bot de música para Discord.
+- [**WhosBot:** Bot de música para Discord, 100 % gratis y hecho desde cero.](https://whosbot.s-mazo.tech) Con panel web, WebSockets en tiempo real, playlists de YouTube y sistema de favoritos.
 - [**Webpage-Crud:** Un CRUD web con estilo neuromórfico.](https://github.com/S-mazo/WEBPAGE-CRUD)
-- **Urbus:** Un proyecto de análisis de datos (en desarrollo).
+- **Portafolio:** Este mismo sitio, mi carta de presentación en la web.
 
 ## Contacto
 
 Puedes encontrarme en:
 
 [![Perfil Smazo](https://img.shields.io/badge/Github-S--mazo-black)](https://github.com/S-mazo)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-tfire-0A66C2)](https://www.linkedin.com/in/tfire)
+[![Correo](https://img.shields.io/badge/Correo-admin%40s--mazo.tech-red)](mailto:admin@s-mazo.tech)
 <br>
 [![Discord](https://img.shields.io/badge/Discord-who3913-blue)](https://discord.com/users/776998213310742548)
 

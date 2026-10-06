@@ -13,10 +13,18 @@ document.addEventListener('DOMContentLoaded', function () {
     
     document.getElementById('age').textContent = age;
 
-    particlesJS('particles-js', {
+    // Accesibilidad: respetar la preferencia de movimiento reducido del sistema
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (!prefersReducedMotion) {
+        // En móviles se reducen drásticamente las partículas para no saturar CPU/GPU
+        const isMobile = window.matchMedia('(max-width: 768px)').matches;
+        const particleCount = isMobile ? 150 : 1500;
+
+        particlesJS('particles-js', {
         "particles": {
             "number": {
-            "value": 1500,
+            "value": particleCount,
             "density": {
                 "enable": true,
                 "value_area": 2000
@@ -78,6 +86,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }
     });
+    } // fin del bloque de partículas (se omite con movimiento reducido)
 
     // Smooth scroll for "Scroll to Discover" button
     const scrollToDiscoverBtn = document.getElementById('scroll-to-discover-btn');
@@ -85,35 +94,54 @@ document.addEventListener('DOMContentLoaded', function () {
         scrollToDiscoverBtn.addEventListener('click', function() {
             const educationSection = document.getElementById('education');
             if (educationSection) {
-                educationSection.scrollIntoView({ behavior: 'smooth' });
+                educationSection.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth' });
+            }
+        });
+    }
+
+    // Smooth scroll for "Contáctame" button
+    const contactBtn = document.getElementById('contact-btn');
+    if (contactBtn) {
+        contactBtn.addEventListener('click', function() {
+            const contactSection = document.getElementById('contact');
+            if (contactSection) {
+                contactSection.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth' });
             }
         });
     }
 
     const hiddenSections = document.querySelectorAll('.hidden-section');
 
-    const observerOptions = {
-        root: null, // viewport
-        rootMargin: '0px',
-        threshold: 0.25 // 25% of the section must be visible
-    };
-
-    const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible-section');
-                entry.target.classList.remove('hidden-section');
-                observer.unobserve(entry.target); // Stop observing once visible
-            }
+    if (prefersReducedMotion) {
+        // Sin animaciones: mostrar todas las secciones de inmediato
+        hiddenSections.forEach(section => {
+            section.classList.add('visible-section');
+            section.classList.remove('hidden-section');
         });
-    }, observerOptions);
+    } else {
+        const observerOptions = {
+            root: null, // viewport
+            rootMargin: '0px',
+            threshold: 0.25 // 25% of the section must be visible
+        };
 
-    hiddenSections.forEach(section => {
-        observer.observe(section);
-    });
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible-section');
+                    entry.target.classList.remove('hidden-section');
+                    observer.unobserve(entry.target); // Stop observing once visible
+                }
+            });
+        }, observerOptions);
+
+        hiddenSections.forEach(section => {
+            observer.observe(section);
+        });
+    }
 
     const favicon = document.getElementById('favicon');
-    if (favicon) {
+    if (favicon && !prefersReducedMotion) {
         let isBlack = true; // Starts with black favicon
         const toggleFavicon = () => {
             favicon.href = isBlack ? 'img/Cuervo black.png' : 'img/Cuervo.png';
@@ -126,64 +154,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const crowImage = document.getElementById('crow-overlay');
     if (crowImage) {
-        crowImage.addEventListener('click', () => {
+        const openGithub = () => {
             window.open('https://github.com/S-mazo');
-        });
-    }
-
-    const udemyCard = document.getElementById('udemy-card');
-    if (udemyCard) {
-        udemyCard.addEventListener('click', () => {
-            window.open('https://ude.my/UC-f835525f-589e-4913-bad4-b30858bacba8');
-        });
-    }
-
-    const unilasallistaCard = document.getElementById('unilasallista-card');
-    if (unilasallistaCard) {
-        unilasallistaCard.addEventListener('click', () => {
-            window.open('https://www.unilasallista.edu.co/');
-        });
-    }
-
-    const dcbotCard = document.getElementById('dc-bot-card');
-    if (dcbotCard) {
-        dcbotCard.addEventListener('click', () => {
-            alert('Este proyecto es privado por el momento. En un futuro cercano podré compartir más detalles al respecto.');
-        });
-    }
-
-    const portfolioCard = document.getElementById('portfolio-card');
-    if (portfolioCard) {
-        portfolioCard.addEventListener('click', () => {
-            window.open('https://github.com/S-mazo/Portafolio');
-        });
-    }
-
-    const cibermentoriaCard = document.getElementById('cibermentoria-card');
-    if (cibermentoriaCard) {
-        cibermentoriaCard.addEventListener('click', () => {
-            window.open('https://github.com/S-mazo/CibermentorIA');
-        });
-    }
-
-    const faceidCard = document.getElementById('faceid-card');
-    if (faceidCard) {
-        faceidCard.addEventListener('click', () => {
-            window.open('https://github.com/S-mazo/FaceID');
-        });
-    }
-
-    const webpagecrudCard = document.getElementById('webpage-crud-card');
-    if (webpagecrudCard) {
-        webpagecrudCard.addEventListener('click', () => {
-            window.open('https://github.com/S-mazo/WEBPAGE-CRUD');
-        });
-    }
-
-    const urbusCard = document.getElementById('urbus-card');
-    if (urbusCard) {
-        urbusCard.addEventListener('click', () => {
-            alert('Este proyecto es privado por el momento. En un futuro cercano podré compartir más detalles al respecto.');
+        };
+        crowImage.addEventListener('click', openGithub);
+        // Accesible por teclado: Enter o espacio
+        crowImage.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault();
+                openGithub();
+            }
         });
     }
 

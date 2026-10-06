@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Rajdhani:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Rajdhani:wght@400;700&family=JetBrains+Mono:wght@400;700&display=swap');
 
 :root {
     --dark-bg: #0a0a1a;
     --neon-blue: #00c2ff;
     --neon-red: #ff003c;
-    --neon-purple: #a900ff;
+    --neon-purple: #bf5fff; /* 5.88:1 sobre el fondo, cumple WCAG AA para texto normal */
     --text-color: #e0e0e0;
     --border-color: rgba(0, 194, 255, 0.3);
 }
@@ -114,9 +114,6 @@ section {
     padding: 60px 0;
 }
 
-.private-project{
-    cursor: not-allowed !important;
-}
 /* Scroll to Discover Button */
 .btn-neon {
     background-color: transparent;
@@ -144,6 +141,20 @@ section {
 .btn-neon i {
     margin-left: 10px;
     transition: transform 0.3s ease;
+}
+
+/* Red variant for the "Contáctame" button */
+.btn-neon-red {
+    border-color: var(--neon-red);
+    color: var(--neon-red);
+    box-shadow: 0 0 10px var(--neon-red);
+}
+
+.btn-neon-red:hover {
+    color: var(--dark-bg);
+    background-color: var(--neon-red);
+    box-shadow: 0 0 20px var(--neon-red), 0 0 40px var(--neon-red);
+    border-color: var(--neon-red);
 }
 
 .btn-neon:hover i {
@@ -174,6 +185,7 @@ section {
     transition: all 0.3s ease;
     box-shadow: 0 0 15px rgba(0, 194, 255, 0.1);
     cursor: pointer;
+    color: var(--text-color);
 }
 
 .card-cyber:hover {
@@ -189,39 +201,72 @@ section {
     color: var(--neon-purple);
 }
 
-/* Skills Section */
-.skill {
+/* Tech tags inside project cards */
+.tech-tags {
     display: flex;
-    align-items: center;
-    margin-bottom: 1rem;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin: 0.75rem 0;
 }
 
-.skill-icon {
-    font-size: 1.8rem;
-    color: var(--neon-blue);
-    margin-right: 15px;
-    width: 30px;
-    text-align: center;
-}
-
-.skill span {
+.tech-tag {
+    font-size: 0.75rem;
     font-weight: bold;
-    margin-right: 15px; /* Spacing between text and progress bar */
-}
-
-.progress {
-    flex-grow: 1;
-    height: 20px;
-    background-color: rgba(0, 0, 0, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 4px 10px;
     border: 1px solid var(--border-color);
-    border-radius: 0;
+    color: var(--neon-blue);
+    background-color: rgba(0, 194, 255, 0.08);
 }
 
-.progress-bar {
-    background-color: var(--neon-purple);
+.tech-tag i {
+    margin-right: 6px;
+}
+
+/* Visible link at the bottom of cards */
+.card-link {
+    display: inline-block;
+    margin-top: 0.5rem;
     font-weight: bold;
-    text-shadow: 1px 1px 2px black;
-    box-shadow: 0 0 10px var(--neon-purple);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--neon-red);
+}
+
+a.card-cyber:hover .card-link {
+    text-decoration: underline;
+}
+
+/* Project screenshot inside cards */
+.card-img {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin-bottom: 1rem;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 0 10px rgba(0, 194, 255, 0.15);
+}
+
+/* Skills Section */
+.skill-group {
+    background-color: rgba(15, 23, 42, 0.7);
+    border: 1px solid var(--border-color);
+    padding: 20px;
+    height: 100%;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 0 15px rgba(0, 194, 255, 0.1);
+}
+
+.skill-group-title {
+    font-size: 1rem;
+    margin-bottom: 0.9rem;
+}
+
+.skill-group-title i {
+    color: var(--neon-red);
+    margin-right: 8px;
 }
 
 /* Interests */
@@ -241,4 +286,265 @@ footer {
     border-top: 1px solid var(--border-color);
     color: var(--text-color);
     font-size: 0.9rem;
+}
+
+
+/* ===== Accesibilidad ===== */
+
+/* Enfoque visible al navegar con teclado */
+a:focus-visible,
+button:focus-visible,
+[tabindex="0"]:focus-visible {
+    outline: 2px solid var(--neon-blue);
+    outline-offset: 3px;
+}
+
+/* Respetar "movimiento reducido": sin animaciones ni transiciones */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+
+/* ===== Tarjetas de proyectos: estilo HUD ===== */
+.card-window {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background-color: #0d1220;
+    border: 1px solid #1e2a3d;
+    color: var(--text-color);
+    text-decoration: none;
+    overflow: hidden;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.card-window:hover {
+    border-color: var(--neon-red);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.55), 0 0 22px rgba(255, 0, 60, 0.18);
+    transform: translateY(-4px);
+}
+
+/* Pantalla: imagen a sangre con velo que la funde con la tarjeta */
+.card-window-screen {
+    position: relative;
+    aspect-ratio: 2 / 1;
+    overflow: hidden;
+    border-bottom: 1px solid #1e2a3d;
+}
+
+.card-window-screen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.card-window-screen::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(10, 10, 26, 0) 55%, rgba(10, 10, 26, 0.55) 88%, rgba(10, 10, 26, 0.95) 100%);
+    pointer-events: none;
+}
+
+.card-window:hover .card-window-screen img { transform: scale(1.03); }
+
+/* Esquinas HUD */
+.cw-corner {
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    border: 0 solid var(--neon-blue);
+    z-index: 2;
+    transition: filter 0.3s ease, width 0.25s ease, height 0.25s ease;
+}
+
+.cw-corner.tl { top: 12px; left: 12px; border-top-width: 3px; border-left-width: 3px; }
+.cw-corner.tr { top: 12px; right: 12px; border-top-width: 3px; border-right-width: 3px; }
+.cw-corner.bl { bottom: 12px; left: 12px; border-bottom-width: 3px; border-left-width: 3px; }
+.cw-corner.br { bottom: 12px; right: 12px; border-bottom-width: 3px; border-right-width: 3px; }
+
+.card-window:hover .cw-corner {
+    filter: drop-shadow(0 0 6px var(--neon-blue));
+    width: 24px;
+    height: 24px;
+}
+
+/* Cabecera: nombre en Orbitron + badge de estado */
+.card-window-body {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 18px 22px 20px;
+    flex: 1;
+}
+
+.cw-head {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+}
+
+.cw-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--neon-blue);
+    text-shadow: 0 0 18px rgba(0, 194, 255, 0.4);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.cw-badge {
+    margin-left: auto;
+    font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 12px;
+    letter-spacing: 2px;
+    flex-shrink: 0;
+}
+
+.cw-badge.live { color: #00e676; }
+.cw-badge.repo { color: #8b98ad; }
+
+/* Raya roja de acento */
+.cw-rule {
+    width: 56px;
+    height: 3px;
+    background-color: var(--neon-red);
+    border: 0;
+    opacity: 1;
+    margin: 0;
+}
+
+.cw-oneliner {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 21px;
+    font-weight: 700;
+    color: #f2f6ff;
+    line-height: 1.2;
+    margin: 0;
+}
+
+.cw-desc {
+    font-size: 15px;
+    color: #8b98ad;
+    line-height: 1.45;
+    margin: 0;
+    flex: 1;
+}
+
+.cw-tags {
+    font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 12.5px;
+    color: var(--neon-blue);
+    margin: 0;
+}
+
+.cw-cta {
+    font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 13.5px;
+    color: var(--neon-blue);
+}
+
+.cw-arrow { color: var(--neon-red); }
+
+.card-window:hover .cw-cta {
+    text-decoration: underline;
+    text-shadow: 0 0 8px rgba(0, 194, 255, 0.6);
+}
+
+
+/* ===== Sección Contáctame: panel HUD ===== */
+.contact-panel {
+    position: relative;
+    max-width: 720px;
+    margin: 0 auto;
+    background-color: #0d1220;
+    border: 1px solid #1e2a3d;
+    padding: 36px 40px 32px;
+    text-align: center;
+    overflow: hidden;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-panel:hover {
+    border-color: rgba(0, 194, 255, 0.5);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.55), 0 0 22px rgba(0, 194, 255, 0.12);
+}
+
+.contact-cmd {
+    font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 13px;
+    color: #8b98ad;
+    margin: 0 0 18px;
+}
+
+.contact-cmd::before {
+    content: "$ ";
+    color: #00e676;
+}
+
+.contact-lead {
+    font-size: 17px;
+    color: #c9d4e8;
+    margin: 0 0 16px;
+}
+
+.contact-mail {
+    display: inline-block;
+    font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: clamp(17px, 3.4vw, 24px);
+    color: var(--neon-blue);
+    text-shadow: 0 0 14px rgba(0, 194, 255, 0.45);
+    text-decoration: none;
+    margin-bottom: 24px;
+    word-break: break-all;
+}
+
+.contact-mail:hover {
+    text-decoration: underline;
+    text-shadow: 0 0 20px rgba(0, 194, 255, 0.8);
+}
+
+.contact-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    justify-content: center;
+    margin-bottom: 26px;
+}
+
+.contact-alt {
+    font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 12.5px;
+    color: #8b98ad;
+    margin: 0 0 12px;
+}
+
+.contact-panel .social-icons a {
+    display: inline-block;
+    transition: filter 0.25s ease, transform 0.25s ease;
+}
+
+.contact-panel .social-icons a:hover {
+    filter: drop-shadow(0 0 8px var(--neon-blue));
+    transform: translateY(-3px);
+}
+
+@media (max-width: 576px) {
+    .contact-panel {
+        padding: 28px 20px 24px;
+    }
 }
