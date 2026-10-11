@@ -143,12 +143,20 @@ document.addEventListener('DOMContentLoaded', function () {
     const favicon = document.getElementById('favicon');
     if (favicon && !prefersReducedMotion) {
         let isBlack = true; // Starts with black favicon
+        // Ruta base según la página (index/ usa img/, las de detalle usan ../img/)
+        const faviconHref = favicon.getAttribute('href');
+        const faviconDir = faviconHref.includes('/')
+            ? faviconHref.slice(0, faviconHref.lastIndexOf('/') + 1)
+            : '';
         const toggleFavicon = () => {
-            favicon.href = isBlack ? 'img/Cuervo black.png' : 'img/Cuervo.png';
+            favicon.href = faviconDir + (isBlack ? 'Cuervo black.png' : 'Cuervo.png');
             isBlack = !isBlack; // Alterna el estado
         };
-        // Changes every 2 seconds
-        setInterval(toggleFavicon, 2000);
+        // Los primeros 10 s se mantiene fijo en negro (es lo que ven los
+        // rastreadores como Google); después titila cada 2 s
+        setTimeout(() => {
+            setInterval(toggleFavicon, 2000);
+        }, 10000);
     }
 
 

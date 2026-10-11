@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servidor Proxmox | Infraestructura de virtualización sobre hardware recuperado — Samuel Mazo</title>
+    <meta name="description" content="Caso de estudio: hipervisor Proxmox VE 9 sobre una estación de trabajo recuperada. 7 VMs, 247 GB de RAM, 8 TB en ZFS, sitios institucionales y hosting de game servers educativos publicados sin abrir un solo puerto: Cloudflare Tunnel, Tailscale y Pterodactyl.">
+    <meta name="theme-color" content="#0a0a1a">
+    <!-- Enlace canónico -->
+    <link rel="canonical" href="https://s-mazo.tech/proyectos/servidor-proxmox.html">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://s-mazo.tech/proyectos/servidor-proxmox.html">
+    <meta property="og:title" content="Servidor Proxmox — Infraestructura sobre hardware recuperado">
+    <meta property="og:description" content="De una estación Dell abandonada a una plataforma en producción: 7 VMs, 8 TB ZFS, túneles Cloudflare + Tailscale, 0 puertos abiertos.">
+    <meta property="og:image" content="https://s-mazo.tech/img/projects/PROXMOX/proxmox.jpg">
+    <meta property="og:image:width" content="1280">
+    <meta property="og:image:height" content="640">
+    <meta property="og:locale" content="es_ES">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Servidor Proxmox — Infraestructura sobre hardware recuperado">
+    <meta name="twitter:description" content="De una estación Dell abandonada a una plataforma en producción: 7 VMs, 8 TB ZFS, túneles Cloudflare + Tailscale, 0 puertos abiertos.">
+    <meta name="twitter:image" content="https://s-mazo.tech/img/projects/PROXMOX/proxmox.jpg">
+    <link id="favicon" rel="icon" type="image/png" href="../img/Cuervo black.png">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <!-- Particles.js Container -->
+    <div id="particles-js"></div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">S-mazo</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="../index.html#about">Información</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../index.html#education">Estudios</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../index.html#experience">Proyectos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../index.html#skills">Habilidades</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../index.html#interests">Intereses</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../index.html#contact">Contáctame</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container content-container">
+
+        <!-- Hero -->
+        <section class="detail-hero text-center">
+            <p class="detail-meta mb-2">// caso de estudio — proyecto en producción (universidad)</p>
+            <h1 class="display-4">Servidor Proxmox</h1>
+            <p class="lead mt-3">Infraestructura de virtualización sobre hardware recuperado: una estación de trabajo sin uso convertida en la plataforma que aloja sitios institucionales, proyectos de estudiantes y un hosting de game servers educativos — sin abrir un solo puerto.</p>
+            <div class="tech-tags justify-content-center mt-3">
+                <span class="tech-tag"><i class="fa-solid fa-server"></i> Proxmox VE 9</span>
+                <span class="tech-tag"><i class="fa-solid fa-database"></i> ZFS</span>
+                <span class="tech-tag"><i class="devicon-cloudflare-plain"></i> Cloudflare Tunnel</span>
+                <span class="tech-tag"><i class="fa-solid fa-network-wired"></i> Tailscale</span>
+                <span class="tech-tag"><i class="fa-solid fa-gamepad"></i> Pterodactyl</span>
+                <span class="tech-tag"><i class="devicon-docker-plain"></i> Docker</span>
+                <span class="tech-tag"><i class="devicon-linux-plain"></i> Linux</span>
+            </div>
+            <div class="position-relative mt-4">
+                <img src="../img/projects/PROXMOX/proxmox.jpg" alt="Mockup generado con IA que ilustra un panel de infraestructura: lista de máquinas virtuales con uso de CPU y RAM, gráfico del pool ZFS y topología de túneles seguros" class="card-img mt-0" loading="eager">
+                <span class="mockup-badge">mockup IA · no es la UI real</span>
+            </div>
+            <p class="detail-note">Esta imagen es un <strong>mockup generado con inteligencia artificial</strong>, meramente demostrativo: <strong>no se asemeja en nada a la interfaz real del producto</strong>. Se usa para ilustrar el proyecto protegiendo los datos, la identidad y el diseño de la universidad.</p>
+        </section>
+
+        <!-- Cifras clave -->
+        <section id="cifras" class="detail-section">
+            <h2 class="text-center mb-4">La infraestructura en cifras</h2>
+            <div class="stat-grid">
+                <div class="stat-cell"><span class="stat-value">4 h</span><span class="stat-label">para el hipervisor operativo</span></div>
+                <div class="stat-cell"><span class="stat-value">~1</span><span class="stat-label">mes de construcción</span></div>
+                <div class="stat-cell"><span class="stat-value">7</span><span class="stat-label">VMs creadas (4 activas)</span></div>
+                <div class="stat-cell"><span class="stat-value">247 GB</span><span class="stat-label">RAM administradas</span></div>
+                <div class="stat-cell"><span class="stat-value">8 TB</span><span class="stat-label">ZFS + 1 TB NVMe</span></div>
+                <div class="stat-cell"><span class="stat-value">0</span><span class="stat-label">puertos abiertos en la red</span></div>
+            </div>
+        </section>
+
+        <!-- Visión general -->
+        <section id="vision" class="detail-section">
+            <h2 class="text-center mb-4">Visión general</h2>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <p>Un docente descubrió una estación de trabajo Dell Precision 7820 que nadie usaba en la universidad y la reclamó. Me pidió administrarla: convertirla en un servidor real, con servicios separados y acceso remoto seguro.</p>
+                    <p>La respuesta fue <strong>Proxmox VE 9.2</strong>: un hipervisor bare-metal sobre el que hoy corren máquinas virtuales para un semillero de investigación, una plataforma institucional de servicio social, el proyecto web de un estudiante y un <strong>hosting de servidores de juego con fines educativos</strong>. Todo sobre una red universitaria donde no es viable exponer la IP institucional ni abrir puertos: cada servicio se publica a través de túneles y VPN mesh.</p>
+                    <p>Es un proyecto reciente —arrancó el mes pasado— y está en <strong>crecimiento activo</strong>: el hardware todavía tiene capacidad libre de sobra (incluida una GPU de 48 GB sin asignar) y la decisión de qué nuevos servicios montar se toma sobre la marcha. Lo que ya corre, corre en producción con usuarios reales.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Qué construí -->
+        <section id="alcance" class="detail-section">
+            <h2 class="text-center mb-4">Qué construí</h2>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="detail-panel equal">
+                        <h5><i class="fas fa-server"></i> Hipervisor Proxmox VE</h5>
+                        <p>Instalación de Proxmox VE 9.2 sobre Debian Trixie: migración de repositorios enterprise a no-subscription (errores 401 y de formato Deb822), limpieza de metadatos RAID Intel IMSM heredados (md127, wipefs) y pools ZFS desde cero. Biblioteca de 6 ISOs lista para provisionar VMs.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="detail-panel equal">
+                        <h5><i class="fas fa-gamepad"></i> Game servers (Pterodactyl)</h5>
+                        <p>VM KVM tuneada a bajo nivel —CPU en modo host, RAM fija sin ballooning, VirtIO SCSI con iothread y discard sobre ZFS, red multiqueue— con el panel Pterodactyl + Wings sobre LEMP. Primer despliegue: servidor de Minecraft educativo, con Docker por servidor y tráfico de juego publicado de forma segura.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="detail-panel equal">
+                        <h5><i class="fas fa-users"></i> Infraestructura para terceros</h5>
+                        <p>VMs aprovisionadas para otros: la del docente (4 sitios —semillero de investigación, plataforma de servicio social de la vicerrectoría y dos proyectos más— sobre nginx + 3 apps Python/Gunicorn) y la de un estudiante detrás de openresty. Cada uno con su VM aislada y su propio túnel de salida.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="detail-panel equal">
+                        <h5><i class="fas fa-globe"></i> Red sin IP pública</h5>
+                        <p>Exposición segura bajo restricciones universitarias: Cloudflare Tunnel (conexiones salientes, TLS en el borde) para el tráfico web, Tailscale como VPN mesh de administración con 7 dispositivos y un túnel TCP/UDP dedicado para el tráfico de juego, con enrutado por DNS SRV.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="detail-panel equal">
+                        <h5><i class="fas fa-shield-halved"></i> Seguridad y segregación</h5>
+                        <p>Modelo de permisos con ACLs de Proxmox: un segundo administrador con rol Administrator sobre todo el datacenter excepto la VM de producción de juegos, bloqueada con NoAccess. SSH exclusivo por claves y administración remota solo por VPN.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="detail-panel equal">
+                        <h5><i class="fas fa-flask"></i> Entornos de prueba</h5>
+                        <p>VM de Windows con UEFI + TPM 2.0 emulado + Secure Boot para laboratorio de pruebas, aislada de los servicios de producción.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Arquitectura -->
+        <section id="arquitectura" class="detail-section">
+            <h2 class="text-center mb-4">Arquitectura y stack</h2>
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <div class="detail-panel">
+                        <div class="table-responsive">
+                        <table class="detail-table">
+                            <thead>
+                                <tr><th>Capa</th><th>Tecnología</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>Hipervisor</td><td>Proxmox VE 9.2 (pve-manager 9.2.2, kernel 7.0.2) sobre Debian 13 Trixie</td></tr>
+                                <tr><td>Hardware</td><td>Dell Precision 7820 — Xeon Gold 20C/40T, 247 GB RAM (DDR4 ECC + Intel Optane PMem), NVIDIA Quadro RTX 8000</td></tr>
+                                <tr><td>Almacenamiento</td><td>LVM-thin sobre NVMe (sistema) + pools ZFS sobre HDD empresariales de 4 TB (VMs)</td></tr>
+                                <tr><td>Red virtual</td><td>Bridge vmbr0, VirtIO multiqueue, IP estática con netplan en cada VM</td></tr>
+                                <tr><td>Exposición web</td><td>Cloudflare Tunnel (cloudflared) por VM — TLS en el borde, sin puertos entrantes</td></tr>
+                                <tr><td>Acceso admin</td><td>Tailscale (VPN mesh, 7 dispositivos) + SSH por claves</td></tr>
+                                <tr><td>Tráfico de juego</td><td>Túnel TCP/UDP dedicado + DNS SRV en Cloudflare</td></tr>
+                                <tr><td>Game hosting</td><td>Pterodactyl Panel + Wings — LEMP (Nginx, PHP-FPM, MariaDB, Redis), Docker por servidor</td></tr>
+                                <tr><td>Sitios alojados</td><td>nginx + Gunicorn (Python) · openresty</td></tr>
+                            </tbody>
+                        </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-lg-10 mx-auto">
+                    <p><strong class="text-info">Decisiones destacables:</strong> CPU en modo host y RAM fija en la VM de juegos para rendimiento predecible, a cambio de perder métricas del hipervisor; iothread + discard para evitar doble caché entre ZFS y el guest; servicios systemd y cron propios para el scheduler y las colas del panel; y reparación manual de la configuración de Wings cuando el panel generaba SSL habilitado detrás de un proxy que ya terminaba TLS.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ingeniería y operación -->
+        <section id="operacion" class="detail-section">
+            <h2 class="text-center mb-4">Ingeniería y operación</h2>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <ul class="list-unstyled">
+                        <li class="mb-3"><i class="fa-solid fa-check" style="color: var(--neon-blue);"></i> <strong>Rescaté el hardware:</strong> los dos HDD de 4 TB venían atrapados en un RAID Intel IMSM inactivo. Diagnostiqué los metadatos, detuve el arreglo y limpié las firmas con <code>wipefs</code> — sin tocar el USB de instalación, que era lo único que había que conservar.</li>
+                        <li class="mb-3"><i class="fa-solid fa-check" style="color: var(--neon-blue);"></i> <strong>Servidor operativo en 4 horas:</strong> instalación de Proxmox, corrección de repositorios (enterprise → no-subscription, errores 401 y de formato), SSH y Tailscale funcionando el mismo día. El entorno completo tomó ~1 mes intermitente.</li>
+                        <li class="mb-3"><i class="fa-solid fa-check" style="color: var(--neon-blue);"></i> <strong>Iteré hasta la VM correcta:</strong> la VM de producción actual es su tercera iteración (crear → destruir → recrear), ajustando recursos en cada ciclo. 7 VMs creadas en total, 4 activas.</li>
+                        <li class="mb-3"><i class="fa-solid fa-check" style="color: var(--neon-blue);"></i> <strong>Diagnostiqué rendimiento con datos:</strong> corregí una configuración de CPU pinning que confundía "cantidad de núcleos" con "IDs de núcleo" — el cuello de botella se detectó en métricas de uso, no a ojo. Distinguí la memoria real de cada VM del caché ARC de ZFS, evitando falsas alarmas de "RAM llena".</li>
+                        <li class="mb-3"><i class="fa-solid fa-check" style="color: var(--neon-blue);"></i> <strong>Resolví fallos en producción:</strong> diagnóstico por logs de systemd del daemon de juegos que no arrancaba tras el proxy, corrección manual de su configuración y ajuste de puertos para operar detrás de Cloudflare.</li>
+                        <li class="mb-3"><i class="fa-solid fa-check" style="color: var(--neon-blue);"></i> <strong>29 días de uptime continuo</strong> con 3 VMs en producción sirviendo sitios institucionales reales — incluida la plataforma de autogestión del servicio social de la universidad.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Estado y roadmap -->
+        <section id="roadmap" class="detail-section text-center">
+            <h2 class="text-center mb-4">Estado actual y roadmap</h2>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <p>El servidor tiene capacidad libre considerable —RAM, almacenamiento y una GPU de 48 GB aún sin asignar— y el proyecto sigue en definición. Entre los próximos pasos están el <strong>GPU passthrough para workloads de IA</strong>, <strong>backups automatizados</strong> y nuevos servicios académicos según las necesidades de la universidad.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Rol -->
+        <section id="rol" class="detail-section text-center">
+            <h2 class="text-center mb-4">Mi rol</h2>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <p>Administración completa del servidor: instalación del hipervisor, recuperación y acondicionamiento de discos, aprovisionamiento y tuning de VMs, arquitectura de red sin IP pública, despliegue del hosting de juegos, modelo de permisos y soporte continuo a los usuarios de cada VM — construido y operado de forma individual, sobre hardware que nadie usaba, en ~1 mes de trabajo documentado.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="text-center pb-5">
+            <a class="back-link" href="../index.html#experience"><span class="cw-arrow">←</span> volver a proyectos</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-center py-4">
+        <span id="age" hidden></span>
+        <p>&copy; <span id="year"></span> Samuel Mazo. Todos los derechos reservados. Diseñado con <i class="fas fa-heart" style="color: var(--neon-red);"></i> y Código.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>

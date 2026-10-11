@@ -548,3 +548,156 @@ button:focus-visible,
         padding: 28px 20px 24px;
     }
 }
+
+/* ===== Página de detalle de proyecto ===== */
+.detail-hero {
+    padding-top: 110px;
+}
+
+.detail-hero .lead {
+    color: #c9d4e8;
+    font-size: 1.15rem;
+}
+
+.detail-meta {
+    font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 13px;
+    color: #8b98ad;
+}
+
+.stat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 14px;
+    margin: 1.5rem 0;
+}
+
+.stat-cell {
+    background-color: rgba(15, 23, 42, 0.7);
+    border: 1px solid var(--border-color);
+    padding: 16px 14px;
+    text-align: center;
+    backdrop-filter: blur(5px);
+}
+
+.stat-value {
+    display: block;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.5rem;
+    color: var(--neon-blue);
+    text-shadow: 0 0 12px rgba(0, 194, 255, 0.5);
+}
+
+.stat-label {
+    display: block;
+    margin-top: 6px;
+    font-size: 0.85rem;
+    color: #8b98ad;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.detail-table {
+    width: 100%;
+    font-size: 0.95rem;
+    color: var(--text-color);
+}
+
+.detail-table th {
+    font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--neon-blue);
+    border-bottom: 1px solid var(--border-color);
+    padding: 8px 10px;
+    text-align: left;
+    white-space: nowrap;
+}
+
+.detail-table td {
+    border-bottom: 1px solid rgba(30, 42, 61, 0.8);
+    padding: 8px 10px;
+    vertical-align: top;
+}
+
+.detail-table tr:last-child td {
+    border-bottom: 0;
+}
+
+.detail-table .num {
+    color: var(--neon-red);
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.detail-panel {
+    background-color: rgba(15, 23, 42, 0.7);
+    border: 1px solid var(--border-color);
+    padding: 24px;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 0 15px rgba(0, 194, 255, 0.1);
+}
+
+/* Paneles en rejilla: misma altura dentro de la fila */
+.detail-panel.equal {
+    height: 100%;
+}
+
+/* Secciones de la página de detalle (sustituye a py-4, que pisaba el padding por !important) */
+.detail-section {
+    padding: 56px 0;
+}
+
+.detail-section h2 {
+    margin-bottom: 1.75rem;
+}
+
+.detail-panel h5 {
+    font-size: 1rem;
+    margin-bottom: 0.9rem;
+}
+
+.detail-panel h5 i {
+    color: var(--neon-red);
+    margin-right: 8px;
+}
+
+.detail-note {
+    font-size: 0.85rem;
+    color: #8b98ad;
+    font-style: italic;
+}
+
+.back-link {
+    display: inline-block;
+    margin-top: 2rem;
+    font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 14px;
+    color: var(--neon-blue);
+    text-decoration: none;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+    text-shadow: 0 0 8px rgba(0, 194, 255, 0.6);
+}
+
+.back-link .cw-arrow { color: var(--neon-red); }
+
+/* Rótulo sobre imágenes mockup generadas con IA */
+.mockup-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    z-index: 2;
+    font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--dark-bg);
+    background-color: var(--neon-blue);
+    padding: 4px 10px;
+    box-shadow: 0 0 12px rgba(0, 194, 255, 0.6);
+}

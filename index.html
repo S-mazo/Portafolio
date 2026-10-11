@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Samuel Mazo | Estudiante de Ingeniería Informática – Python, IA y Automatización</title>
-    <meta name="description" content="Portafolio de Samuel Mazo: bots, automatizaciones e integraciones con inteligencia artificial en Python, y servicios propios sobre infraestructura Linux.">
+    <meta name="description" content="Portafolio de Samuel Mazo: plataforma LMS con IA en producción (~190.000 usuarios), servidor Proxmox sobre hardware recuperado, y proyectos de bots, automatización e IA aplicada en Python.">
     <meta name="theme-color" content="#0a0a1a">
     <!-- Enlace canónico: consolida s-mazo.tech / www.s-mazo.tech / s-mazo.github.io/Portafolio -->
     <link rel="canonical" href="https://s-mazo.tech/">
@@ -29,8 +29,8 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://s-mazo.tech/">
     <meta property="og:title" content="Samuel Mazo | Python, IA y Automatización">
-    <meta property="og:description" content="Bots, automatizaciones e integraciones con IA en Python, y servicios propios sobre infraestructura Linux.">
-    <meta property="og:image" content="https://s-mazo.tech/img/og-image.jpg">
+    <meta property="og:description" content="Casos de estudio en producción: LMS con IA (~190.000 usuarios) y servidor Proxmox; bots, automatización e IA aplicada en Python.">
+    <meta property="og:image" content="https://s-mazo.tech/img/og-image-social.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="Samuel Mazo — Python, IA y Automatización">
@@ -38,8 +38,8 @@
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Samuel Mazo | Python, IA y Automatización">
-    <meta name="twitter:description" content="Bots, automatizaciones e integraciones con IA en Python, y servicios propios sobre infraestructura Linux.">
-    <meta name="twitter:image" content="https://s-mazo.tech/img/og-image.jpg">
+    <meta name="twitter:description" content="Casos de estudio en producción: LMS con IA (~190.000 usuarios) y servidor Proxmox; bots, automatización e IA aplicada en Python.">
+    <meta name="twitter:image" content="https://s-mazo.tech/img/og-image-social.jpg">
     <!-- Iconito del cuervo -->
     <link id="favicon" rel="icon" type="image/png" href="img/Cuervo black.png">
     <!-- Bootstrap CSS -->
@@ -143,6 +143,44 @@
         <section id="experience" class="py-5 hidden-section">
             <h2 class="text-center mb-4">Proyectos</h2>
             <div class="row g-4">
+                <div class="col-md-6">
+                    <a id="lms-ia-card" class="card-window" href="proyectos/lms-ia.html" aria-label="LMS + IA: plataforma de aprendizaje a medida con cuatro módulos de inteligencia artificial, en producción (caso de estudio)">
+                        <div class="card-window-screen">
+                            <img src="img/projects/LMS-IA/lms-ia.jpg" alt="Mockup generado con IA que ilustra el panel del generador de preguntas de la plataforma LMS (no es la interfaz real del producto)" loading="lazy">
+                            <span class="cw-corner tl"></span><span class="cw-corner tr"></span><span class="cw-corner bl"></span><span class="cw-corner br"></span>
+                        </div>
+                        <div class="card-window-body">
+                            <div class="cw-head">
+                                <h3 class="cw-title">LMS + IA</h3>
+                                <span class="cw-badge live">● LIVE</span>
+                            </div>
+                            <hr class="cw-rule">
+                            <h5 class="cw-oneliner">Plataforma de aprendizaje a medida que reemplazó ~20 instancias de Moodle.</h5>
+                            <p class="cw-desc">En producción con ~190.000 usuarios y 2.100+ cursos: backend Django 5 + MySQL y 4 módulos de IA sobre Gemini (generador de preguntas con prompting de 4 capas, chat multimedia, transcripción). Migré 128.778 preguntas desde sistemas legados.</p>
+                            <p class="cw-tags">python · django 5 · mysql · gemini api · nginx · sse</p>
+                            <span class="cw-cta"><span class="cw-arrow">→</span> leer el caso de estudio</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-6">
+                    <a id="proxmox-card" class="card-window" href="proyectos/servidor-proxmox.html" aria-label="Servidor Proxmox: infraestructura de virtualización sobre hardware recuperado, en producción en la universidad (caso de estudio)">
+                        <div class="card-window-screen">
+                            <img src="img/projects/PROXMOX/proxmox.jpg" alt="Mockup generado con IA que ilustra un panel de infraestructura con máquinas virtuales, pool ZFS y túneles seguros (no es la interfaz real del producto)" loading="lazy">
+                            <span class="cw-corner tl"></span><span class="cw-corner tr"></span><span class="cw-corner bl"></span><span class="cw-corner br"></span>
+                        </div>
+                        <div class="card-window-body">
+                            <div class="cw-head">
+                                <h3 class="cw-title">Servidor Proxmox</h3>
+                                <span class="cw-badge live">● LIVE</span>
+                            </div>
+                            <hr class="cw-rule">
+                            <h5 class="cw-oneliner">Hipervisor sobre hardware recuperado que aloja sitios institucionales y game servers educativos.</h5>
+                            <p class="cw-desc">De una estación Dell abandonada a producción en la universidad: 7 VMs (4 activas), 247 GB de RAM y 8 TB en ZFS, publicados con Cloudflare Tunnel y Tailscale — 0 puertos abiertos en la red institucional. 29 días de uptime sirviendo sitios reales.</p>
+                            <p class="cw-tags">proxmox ve 9 · zfs · cloudflare tunnel · tailscale · pterodactyl · docker</p>
+                            <span class="cw-cta"><span class="cw-arrow">→</span> leer el caso de estudio</span>
+                        </div>
+                    </a>
+                </div>
                 <div class="col-md-6">
                     <a id="faceid-card" class="card-window" href="https://github.com/S-mazo/FaceID" target="_blank" rel="noopener noreferrer" aria-label="FaceID: sistema de reconocimiento facial en tiempo real (repositorio en GitHub)">
                         <div class="card-window-screen">
