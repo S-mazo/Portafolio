@@ -122,7 +122,9 @@ document.addEventListener('DOMContentLoaded', function () {
         const observerOptions = {
             root: null, // viewport
             rootMargin: '0px',
-            threshold: 0.25 // 25% of the section must be visible
+            // Umbral bajo: secciones muy altas (p. ej. Proyectos en móvil)
+            // nunca llegan al 25 % visibles a la vez y quedarían ocultas
+            threshold: 0.15
         };
 
         const observer = new IntersectionObserver((entries, observer) => {
