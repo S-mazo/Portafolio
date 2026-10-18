@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samuel Mazo | Computer Engineering Student – Python, AI and Automation</title>
+    <meta name="description" content="Samuel Mazo's portfolio: AI-powered LMS platform in production (~190,000 users), Proxmox server built from recovered hardware, and projects in bots, automation and applied AI in Python.">
+    <meta name="theme-color" content="#0a0a1a">
+    <!-- Canonical: English version lives under /en/ -->
+    <link rel="canonical" href="https://s-mazo.tech/en/">
+    <!-- Site versions in other languages -->
+    <link rel="alternate" hreflang="en" href="https://s-mazo.tech/en/">
+    <link rel="alternate" hreflang="es" href="https://s-mazo.tech/">
+    <link rel="alternate" hreflang="x-default" href="https://s-mazo.tech/">
+    <!-- Structured data: Google's knowledge panel (photo = the crow) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Samuel Mazo",
+      "url": "https://s-mazo.tech/en/",
+      "image": "https://s-mazo.tech/img/Cuervo.png",
+      "jobTitle": "Computer Engineering Student",
+      "description": "I build bots, automations and AI integrations in Python, and deploy my own services on Linux infrastructure.",
+      "sameAs": [
+        "https://github.com/S-mazo",
+        "https://www.linkedin.com/in/tfire"
+      ],
+      "knowsLanguage": ["es", "en"],
+      "knowsAbout": ["Python", "Artificial Intelligence", "Automation", "Backend Development", "Linux", "DevOps"]
+    }
+    </script>
+    <!-- Open Graph (LinkedIn, WhatsApp, etc.) -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://s-mazo.tech/en/">
+    <meta property="og:title" content="Samuel Mazo | Python, AI and Automation">
+    <meta property="og:description" content="Production case studies: AI-powered LMS (~190,000 users) and a Proxmox server; bots, automation and applied AI in Python.">
+    <meta property="og:image" content="https://s-mazo.tech/img/og-image-social.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Samuel Mazo — Python, AI and Automation">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="es_ES">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Samuel Mazo | Python, AI and Automation">
+    <meta name="twitter:description" content="Production case studies: AI-powered LMS (~190,000 users) and a Proxmox server; bots, automation and applied AI in Python.">
+    <meta name="twitter:image" content="https://s-mazo.tech/img/og-image-social.jpg">
+    <!-- Crow favicon -->
+    <link id="favicon" rel="icon" type="image/png" href="../img/Cuervo black.png">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+    <!-- Devicon (tech icons) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/style.css?v=20261018">
+</head>
+<body>
+    <div id="crow-overlay" role="link" tabindex="0" aria-label="Samuel Mazo's GitHub (S-mazo)"><svg viewBox="0 0 1257.000000 1287.000000">
+<g transform="translate(0.000000,1287.000000) scale(0.100000,-0.100000)" stroke="none">
+<path d="M6860 12853 c-111 -11 -263 -39 -395 -73 -800 -203 -1587 -821 -1936
+-1520 -84 -169 -114 -276 -204 -725 -211 -1058 -388 -1654 -520 -1748 -22 -16
+-168 -104 -325 -194 -1082 -628 -2107 -1332 -2865 -1967 -171 -144 -415 -358
+-517 -455 l-88 -83 0 -3044 0 -3044 3884 0 3884 0 123 118 c370 354 688 804
+983 1392 532 1062 866 2345 968 3715 16 223 16 934 0 1130 -72 859 -258 1452
+-579 1848 -67 81 -142 151 -243 226 -157 115 -279 274 -349 455 -62 161 -76
+237 -75 416 1 138 4 165 28 245 36 122 149 349 231 465 187 264 428 487 760
+705 198 130 336 206 775 425 929 465 1639 867 1963 1113 114 86 222 198 175
+182 -72 -25 -1231 -322 -1773 -454 -731 -178 -1893 -446 -1902 -438 -1 2 97
+36 220 75 987 317 1999 566 3150 777 l338 61 -49 46 c-94 88 -261 148 -517
+184 -182 26 -779 27 -1035 1 -623 -63 -1131 -157 -1776 -328 l-190 -50 -170
+76 c-558 254 -1039 407 -1447 460 -107 14 -424 19 -527 8z"/>
+</g>
+</svg></div>
+    <!-- Particles.js Container -->
+    <div id="particles-js"></div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">S-mazo</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#experience">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#interests">Interests</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact me</a></li>
+                    <li class="nav-item lang-switch d-flex align-items-center ms-lg-2">
+                        <a class="nav-link" href="../" hreflang="es" lang="es" onclick="try{sessionStorage.setItem('lang-pref','es')}catch(e){}">ES</a>
+                        <span class="lang-sep" aria-hidden="true">|</span>
+                        <a class="nav-link lang-current" href="#" aria-current="true" onclick="return false;">EN</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container content-container">
+        <div id="intro-screen">
+            <!-- Personal Info -->
+            <section id="about">
+                <div class="row">
+                    <div class="col-md-8 mx-auto text-center">
+                        <h1 class="display-4">S-mazo</h1>
+                        <p class="lead">Computer Engineering Student</p>
+                        <p class="mt-4">Hi! I'm Samuel Mazo, I'm <span id="age"></span> years old and I'm in my 8th semester of Computer Engineering in Caldas, Antioquia (Colombia). I build bots, automations and AI integrations in Python, and deploy my own services on Linux infrastructure. I'm looking for an internship where I can contribute from day one, and I'm also open to opportunities in backend development, applied AI and automation.</p>
+
+                    </div>
+                </div>
+            </section>
+
+            <div class="d-flex flex-wrap gap-3 justify-content-center my-5">
+                <button id="scroll-to-discover-btn" class="btn btn-neon">Discover what I can do <i class="fas fa-chevron-down"></i></button>
+                <button id="contact-btn" class="btn btn-neon btn-neon-red">Contact me <i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+
+        <!-- Education -->
+        <section id="education" class="py-5 hidden-section">
+            <h2 class="text-center mb-4">Education</h2>
+            <div class="row">
+                <div class="col-md-8 mx-auto">
+                    <a id="unilasallista-card" class="card-cyber d-block text-decoration-none" href="https://www.unilasallista.edu.co/" target="_blank" rel="noopener noreferrer">
+                        <div class="card-body">
+                            <h5 class="card-title">Computer Engineering</h5>
+                            <h6 class="card-subtitle mb-2">Corporación Universitaria Unilasallista</h6>
+                            <p class="card-text">2020 - Present</p>
+                            <p>Currently in my 8th semester, focused on broadening my knowledge of different technologies, with a growing interest in high-performance software development, building web pages with AI assistance, task automation and integrating artificial intelligence into digital environments.</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-8 mx-auto">
+                    <a id="udemy-card" class="card-cyber d-block text-decoration-none" href="https://ude.my/UC-f835525f-589e-4913-bad4-b30858bacba8" target="_blank" rel="noopener noreferrer">
+                        <div class="card-body">
+                            <h5 class="card-title">Python TOTAL</h5>
+                            <h6 class="card-subtitle mb-2">Udemy</h6>
+                            <p class="card-text">2026</p>
+                            <p>An intensive Python course covering everything from fundamentals to advanced topics like object-oriented programming, file handling, databases and web development with frameworks. Hands-on and project-driven.</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience -->
+        <section id="experience" class="py-5 hidden-section">
+            <h2 class="text-center mb-4">Projects</h2>
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <a id="lms-ia-card" class="card-window" href="proyectos/lms-ia.html" aria-label="LMS + AI: custom learning platform with four AI modules, in production (case study)">
+                        <div class="card-window-screen">
+                            <img src="../img/projects/LMS-IA/lms-ia.jpg" alt="AI-generated mockup illustrating the question generator dashboard of the LMS platform (not the product's real interface)" loading="lazy">
+                            <span class="cw-corner tl"></span><span class="cw-corner tr"></span><span class="cw-corner bl"></span><span class="cw-corner br"></span>
+                        </div>
+                        <div class="card-window-body">
+                            <div class="cw-head">
+                                <h3 class="cw-title">LMS + AI</h3>
+                                <span class="cw-badge live">● LIVE</span>
+                            </div>
+                            <hr class="cw-rule">
+                            <h5 class="cw-oneliner">A custom learning platform that replaced ~20 Moodle instances.</h5>
+                            <p class="cw-desc">In production with ~190,000 users and 2,100+ courses: Django 5 + MySQL backend and 4 AI modules on Gemini (question generator with 4-layer prompting, multimedia chat, transcription). Migrated 128,778 questions from legacy systems.</p>
+                            <p class="cw-tags">python · django 5 · mysql · gemini api · nginx · sse</p>
+                            <span class="cw-cta"><span class="cw-arrow">→</span> read the case study</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-6">
+                    <a id="proxmox-card" class="card-window" href="proyectos/servidor-proxmox.html" aria-label="Proxmox server: virtualization infrastructure on recovered hardware, in production at the university (case study)">
+                        <div class="card-window-screen">
+                            <img src="../img/projects/PROXMOX/proxmox.jpg" alt="AI-generated mockup illustrating an infrastructure dashboard with virtual machines, ZFS pool and secure tunnels (not the product's real interface)" loading="lazy">
+                            <span class="cw-corner tl"></span><span class="cw-corner tr"></span><span class="cw-corner bl"></span><span class="cw-corner br"></span>
+                        </div>
+                        <div class="card-window-body">
+                            <div class="cw-head">
+                                <h3 class="cw-title">Proxmox Server</h3>
+                                <span class="cw-badge live">● LIVE</span>
+                            </div>
+                            <hr class="cw-rule">
+                            <h5 class="cw-oneliner">A hypervisor on recovered hardware hosting institutional sites and educational game servers.</h5>
+                            <p class="cw-desc">From an abandoned Dell workstation to production at the university: 7 VMs (4 active), 247 GB of RAM and 8 TB on ZFS, published via Cloudflare Tunnel and Tailscale — 0 open ports on the institutional network. 29 days of uptime serving real sites.</p>
+                            <p class="cw-tags">proxmox ve 9 · zfs · cloudflare tunnel · tailscale · pterodactyl · docker</p>
+                            <span class="cw-cta"><span class="cw-arrow">→</span> read the case study</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-6">
+                    <a id="faceid-card" class="card-window" href="https://github.com/S-mazo/FaceID" target="_blank" rel="noopener noreferrer" aria-label="FaceID: real-time facial recognition system (GitHub repository)">
+                        <div class="card-window-screen">
+                            <img src="../img/projects/FACE-ID/faceid-demo-a.jpg" alt="FaceID recognizing Demo Person A: rectangle and name label over the detected face" loading="lazy">
+                            <span class="cw-corner tl"></span><span class="cw-corner tr"></span><span class="cw-corner bl"></span><span class="cw-corner br"></span>
+                        </div>
+                        <div class="card-window-body">
+                            <div class="cw-head">
+                                <h3 class="cw-title">FaceID</h3>
+                                <span class="cw-badge repo">REPO</span>
+                            </div>
+                            <hr class="cw-rule">
+                            <h5 class="cw-oneliner">Real-time facial recognition with Python and OpenCV.</h5>
+                            <p class="cw-desc">Reads the live camera feed, detects faces and compares them against a folder of known faces to identify and log who is in front of the camera. Lesson learned: the database should have been encrypted; it wasn't because the focus was learning cv2.</p>
+                            <p class="cw-tags">python · opencv · face-recognition</p>
+                            <span class="cw-cta"><span class="cw-arrow">→</span> view code on GitHub ↗</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-6">
+                    <a id="cibermentoria-card" class="card-window" href="https://github.com/S-mazo/CibermentorIA" target="_blank" rel="noopener noreferrer" aria-label="CibermentorIA: Telegram bot that teaches cybersecurity with challenges (GitHub repository)">
+                        <div class="card-window-screen">
+                            <img src="../img/projects/CibermentorIA/cibermentoria-workflow.jpg" alt="CibermentorIA automation flow in n8n with a Gemini AI agent" loading="lazy">
+                            <span class="cw-corner tl"></span><span class="cw-corner tr"></span><span class="cw-corner bl"></span><span class="cw-corner br"></span>
+                        </div>
+                        <div class="card-window-body">
+                            <div class="cw-head">
+                                <h3 class="cw-title">CibermentorIA</h3>
+                                <span class="cw-badge repo">REPO</span>
+                            </div>
+                            <hr class="cw-rule">
+                            <h5 class="cw-oneliner">A bot that teaches cybersecurity with challenges at your level.</h5>
+                            <p class="cw-desc">Adapts learning to each user's education level, proposes hands-on challenges and manages scores; an AI agent (Gemini) generates the missions in an n8n workflow.</p>
+                            <p class="cw-tags">n8n · gemini api · telegram</p>
+                            <span class="cw-cta"><span class="cw-arrow">→</span> view code on GitHub ↗</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-6">
+                    <a id="qska-card" class="card-window" href="proyectos/qska.html" aria-label="QSKA: PowerShell script that sets up SSH access on Windows in seconds (project page)">
+                        <div class="card-window-screen">
+                            <img src="../img/projects/QSKA/qska-console.jpg" alt="Real QSKA run in PowerShell: the script sets up the SSH alias, manages the ed25519 key and installs the public key on the server" loading="lazy">
+                            <span class="cw-corner tl"></span><span class="cw-corner tr"></span><span class="cw-corner bl"></span><span class="cw-corner br"></span>
+                        </div>
+                        <div class="card-window-body">
+                            <div class="cw-head">
+                                <h3 class="cw-title">QSKA</h3>
+                                <span class="cw-badge repo">REPO</span>
+                            </div>
+                            <hr class="cw-rule">
+                            <h5 class="cw-oneliner">SSH access on Windows ready in under a minute, with a single command.</h5>
+                            <p class="cw-desc">Quick SSH Key Assistant: asks for IP, port, alias and user, adds them to your ~/.ssh/config (with automatic backup), manages your ed25519 key —or creates a new one— and installs it on the server: the "ssh-copy-id" Windows never shipped.</p>
+                            <p class="cw-tags">powershell · ssh · openssh · windows</p>
+                            <span class="cw-cta"><span class="cw-arrow">→</span> see how it works</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-6">
+                    <a id="dc-bot-card" class="card-window" href="https://whosbot.s-mazo.tech" target="_blank" rel="noopener noreferrer" aria-label="WhosBot: Discord music bot with live demo">
+                        <div class="card-window-screen">
+                            <img src="../img/projects/whosbot/whosbot-panel-1.jpg" alt="WhosBot web panel: playback, active users and recent activity in real time" loading="lazy">
+                            <span class="cw-corner tl"></span><span class="cw-corner tr"></span><span class="cw-corner bl"></span><span class="cw-corner br"></span>
+                        </div>
+                        <div class="card-window-body">
+                            <div class="cw-head">
+                                <h3 class="cw-title">WhosBot</h3>
+                                <span class="cw-badge live">● LIVE</span>
+                            </div>
+                            <hr class="cw-rule">
+                            <h5 class="cw-oneliner">A 100 % free Discord music bot, built from scratch.</h5>
+                            <p class="cw-desc">Plays from YouTube in voice channels with yt-dlp; controlled via commands or its WebSockets web panel: full playlists, favorites, logs and live active users.</p>
+                            <p class="cw-tags">python · yt-dlp · websockets · mongodb · discord</p>
+                            <span class="cw-cta"><span class="cw-arrow">→</span> live demo: whosbot.s-mazo.tech ↗</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-6">
+                    <a id="portfolio-card" class="card-window" href="https://github.com/S-mazo/Portafolio" target="_blank" rel="noopener noreferrer" aria-label="Personal portfolio: this very site (GitHub repository)">
+                        <div class="card-window-screen">
+                            <img src="../img/projects/Portafolio/portafolio.png" alt="Samuel Mazo's personal portfolio with cyberpunk design and interactive particles" loading="lazy">
+                            <span class="cw-corner tl"></span><span class="cw-corner tr"></span><span class="cw-corner bl"></span><span class="cw-corner br"></span>
+                        </div>
+                        <div class="card-window-body">
+                            <div class="cw-head">
+                                <h3 class="cw-title">Portfolio</h3>
+                                <span class="cw-badge repo">REPO</span>
+                            </div>
+                            <hr class="cw-rule">
+                            <h5 class="cw-oneliner">My cover letter.</h5>
+                            <p class="cw-desc">Centralizes my most significant work and how to reach me; it's also my cyberpunk design lab, with JS animations and particles.js on top of Bootstrap.</p>
+                            <p class="cw-tags">html · css · javascript · bootstrap</p>
+                            <span class="cw-cta"><span class="cw-arrow">→</span> view code on GitHub ↗</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-6">
+                    <a id="webpage-crud-card" class="card-window" href="https://github.com/S-mazo/WEBPAGE-CRUD" target="_blank" rel="noopener noreferrer" aria-label="Webpage-Crud: web CRUD for product management (GitHub repository)">
+                        <div class="card-window-screen">
+                            <img src="../img/projects/WEBPAGE-CRUD/webpage-crud.jpg" alt="Neumorphic interface of the product management CRUD" loading="lazy">
+                            <span class="cw-corner tl"></span><span class="cw-corner tr"></span><span class="cw-corner bl"></span><span class="cw-corner br"></span>
+                        </div>
+                        <div class="card-window-body">
+                            <div class="cw-head">
+                                <h3 class="cw-title">Webpage-Crud</h3>
+                                <span class="cw-badge repo">REPO</span>
+                            </div>
+                            <hr class="cw-rule">
+                            <h5 class="cw-oneliner">A full CRUD with a neumorphic interface on a relational database.</h5>
+                            <p class="cw-desc">Academic exercise to learn relational databases: create, read, update and delete products from a neumorphic-style web interface.</p>
+                            <p class="cw-tags">python · sql · css</p>
+                            <span class="cw-cta"><span class="cw-arrow">→</span> view code on GitHub ↗</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills -->
+        <section id="skills" class="py-5 hidden-section">
+            <h2 class="text-center mb-5">Skills</h2>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="skill-group">
+                        <h5 class="skill-group-title"><i class="fas fa-code"></i> Languages</h5>
+                        <div class="tech-tags">
+                            <span class="tech-tag"><i class="devicon-python-plain"></i> Python</span>
+                            <span class="tech-tag"><i class="devicon-javascript-plain"></i> JavaScript</span>
+                            <span class="tech-tag"><i class="fa-solid fa-database"></i> SQL</span>
+                            <span class="tech-tag"><i class="devicon-html5-plain"></i><i class="devicon-css3-plain"></i> HTML / CSS</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="skill-group">
+                        <h5 class="skill-group-title"><i class="fas fa-gears"></i> Backend and Frameworks</h5>
+                        <div class="tech-tags">
+                            <span class="tech-tag"><i class="devicon-django-plain"></i> Django</span>
+                            <span class="tech-tag"><i class="devicon-flask-original"></i> Flask</span>
+                            <span class="tech-tag"><i class="fa-solid fa-palette"></i> Django Jazzmin</span>
+                            <span class="tech-tag"><i class="devicon-nodejs-plain"></i> Node.js</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="skill-group">
+                        <h5 class="skill-group-title"><i class="fas fa-database"></i> Databases</h5>
+                        <div class="tech-tags">
+                            <span class="tech-tag"><i class="devicon-postgresql-plain"></i> PostgreSQL</span>
+                            <span class="tech-tag"><i class="devicon-mongodb-plain"></i> MongoDB</span>
+                            <span class="tech-tag"><i class="devicon-sqlite-plain"></i> SQLite</span>
+                            <span class="tech-tag"><i class="devicon-supabase-plain"></i> Supabase</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="skill-group">
+                        <h5 class="skill-group-title"><i class="fas fa-cloud"></i> Infrastructure and DevOps</h5>
+                        <div class="tech-tags">
+                            <span class="tech-tag"><i class="devicon-linux-plain"></i> Linux</span>
+                            <span class="tech-tag"><i class="fa-solid fa-terminal"></i> SSH</span>
+                            <span class="tech-tag"><i class="devicon-docker-plain"></i> Docker</span>
+                            <span class="tech-tag"><i class="fa-solid fa-box-open"></i> Podman</span>
+                            <span class="tech-tag"><i class="devicon-nginx-original"></i> Nginx</span>
+                            <span class="tech-tag"><i class="devicon-cloudflare-plain"></i> Cloudflare</span>
+                            <span class="tech-tag"><i class="fa-solid fa-lock"></i> Cloudflare Tunnel</span>
+                            <span class="tech-tag"><i class="devicon-netlify-plain"></i> Netlify</span>
+                            <span class="tech-tag"><i class="fa-solid fa-server"></i> Proxmox VE</span>
+                            <span class="tech-tag"><i class="fa-solid fa-desktop"></i> VMware Workstation</span>
+                            <span class="tech-tag"><i class="fa-solid fa-cubes"></i> VirtualBox</span>
+                            <span class="tech-tag"><i class="fa-solid fa-network-wired"></i> Tailscale</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="skill-group">
+                        <h5 class="skill-group-title"><i class="fas fa-robot"></i> Artificial Intelligence</h5>
+                        <div class="tech-tags">
+                            <span class="tech-tag"><i class="fa-brands fa-google"></i> Google Gemini</span>
+                            <span class="tech-tag"><i class="fa-solid fa-feather"></i> Claude</span>
+                            <span class="tech-tag"><i class="fa-solid fa-moon"></i> Kimi</span>
+                            <span class="tech-tag"><i class="fa-solid fa-comments"></i> ChatGPT</span>
+                            <span class="tech-tag"><i class="fa-solid fa-brain"></i> Ollama</span>
+                            <span class="tech-tag"><i class="fa-solid fa-link"></i> Model Context Protocol (MCP)</span>
+                            <span class="tech-tag"><i class="fa-solid fa-robot"></i> AI Agents</span>
+                            <span class="tech-tag"><i class="fa-solid fa-layer-group"></i> LLM Integration</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="skill-group">
+                        <h5 class="skill-group-title"><i class="fas fa-screwdriver-wrench"></i> Tools and Integrations</h5>
+                        <div class="tech-tags">
+                            <span class="tech-tag"><i class="devicon-git-plain"></i><i class="devicon-github-original"></i> Git / GitHub</span>
+                            <span class="tech-tag"><i class="fa-solid fa-diagram-project"></i> n8n</span>
+                            <span class="tech-tag"><i class="fa-brands fa-youtube"></i> yt-dlp</span>
+                            <span class="tech-tag"><i class="fa-solid fa-envelope"></i> Mailtrap</span>
+                            <span class="tech-tag"><i class="fa-solid fa-usb"></i> Ventoy</span>
+                            <span class="tech-tag"><i class="fa-brands fa-discord"></i> Discord API</span>
+                            <span class="tech-tag"><i class="fa-brands fa-telegram"></i> Telegram API</span>
+                            <span class="tech-tag"><i class="fa-solid fa-puzzle-piece"></i> Gemini API</span>
+                            <span class="tech-tag"><i class="fa-solid fa-globe"></i> REST APIs</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="skill-group">
+                        <h5 class="skill-group-title"><i class="fas fa-language"></i> Languages</h5>
+                        <div class="tech-tags">
+                            <span class="tech-tag"><i class="fa-solid fa-flag"></i> Spanish <span class="lang-level">— native</span></span>
+                            <span class="tech-tag"><i class="fa-solid fa-language"></i> English <span class="lang-level">— advanced (C1)</span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interests -->
+        <section id="interests" class="py-5 hidden-section">
+            <h2 class="text-center mb-4">Professional Areas of Interest</h2>
+            <div class="row">
+                <div class="col-md-8 mx-auto">
+                    <ul class="list-unstyled text-center">
+                        <li><i class="fa-solid fa-microchip"></i> Artificial Intelligence</li>
+                        <li><i class="fa-solid fa-shield-halved"></i> Defensive Cybersecurity</li>
+                        <li><i class="fa-solid fa-square-poll-vertical"></i> Process Automation</li>
+                        <li><i class="fa-solid fa-robot"></i> Bot development (discord, telegram)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section id="contact" class="py-5 hidden-section">
+            <h2 class="text-center mb-4">Contact me</h2>
+            <div class="contact-panel">
+                <span class="cw-corner tl"></span><span class="cw-corner tr"></span><span class="cw-corner bl"></span><span class="cw-corner br"></span>
+                <p class="contact-cmd">ping s-mazo.tech --contact</p>
+                <p class="contact-lead">Have a project, an internship or an opportunity in mind? Write me and let's talk.</p>
+                <a class="contact-mail" href="mailto:admin@s-mazo.tech">admin@s-mazo.tech</a>
+                <div class="contact-actions">
+                    <a href="mailto:admin@s-mazo.tech" class="btn btn-neon text-decoration-none"><i class="fas fa-envelope me-2"></i>Send email</a>
+                    <a href="https://wa.me/who3913" target="_blank" rel="noopener noreferrer" class="btn btn-neon btn-neon-red text-decoration-none"><i class="fab fa-whatsapp me-2"></i>Direct WhatsApp</a>
+                </div>
+                <p class="contact-alt">// or find me at</p>
+                <div class="social-icons">
+                    <a href="https://wa.me/who3913" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" class="text-decoration-none mx-2" style="color: var(--neon-blue);"><i class="fab fa-whatsapp fa-2x"></i></a>
+                    <a href="mailto:admin@s-mazo.tech" aria-label="Email" class="text-decoration-none mx-2" style="color: var(--neon-blue);"><i class="fas fa-envelope fa-2x"></i></a>
+                    <a href="https://www.linkedin.com/in/tfire" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="text-decoration-none mx-2" style="color: var(--neon-blue);"><i class="fab fa-linkedin fa-2x"></i></a>
+                    <a href="https://github.com/S-mazo" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="text-decoration-none mx-2" style="color: var(--neon-blue);"><i class="fab fa-github fa-2x"></i></a>
+                    <a href="https://discord.com/users/776998213310742548" target="_blank" rel="noopener noreferrer" aria-label="Discord" class="text-decoration-none mx-2" style="color: var(--neon-blue);"><i class="fab fa-discord fa-2x"></i></a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-center py-4">
+        <p>&copy; <span id="year"></span> Samuel Mazo. All rights reserved. Designed with <i class="fas fa-heart" style="color: var(--neon-red);"></i> and Code.</p>
+        <div class="social-icons mt-3">
+            <a href="https://wa.me/who3913" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" class="text-decoration-none mx-2" style="color: var(--neon-blue);"><i class="fab fa-whatsapp fa-2x"></i></a>
+            <a href="mailto:admin@s-mazo.tech" aria-label="Email" class="text-decoration-none mx-2" style="color: var(--neon-blue);"><i class="fas fa-envelope fa-2x"></i></a>
+            <a href="https://www.linkedin.com/in/tfire" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="text-decoration-none mx-2" style="color: var(--neon-blue);"><i class="fab fa-linkedin fa-2x"></i></a>
+            <a href="https://github.com/S-mazo" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="text-decoration-none mx-2" style="color: var(--neon-blue);"><i class="fab fa-github fa-2x"></i></a>
+            <a href="https://discord.com/users/776998213310742548" target="_blank" rel="noopener noreferrer" aria-label="Discord" class="text-decoration-none mx-2" style="color: var(--neon-blue);"><i class="fab fa-discord fa-2x"></i></a>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="../js/main.js?v=20261018"></script>
+</body>
+</html>

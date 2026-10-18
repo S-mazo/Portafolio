@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LMS + AI | Learning platform with artificial intelligence — Samuel Mazo</title>
+    <meta name="description" content="Case study: custom LMS platform on Django 5 + MySQL with 4 AI modules on Google Gemini. In production with ~190,000 users, 2,100+ courses and 128,778 questions migrated from ~20 Moodle instances.">
+    <meta name="theme-color" content="#0a0a1a">
+    <!-- Canonical link -->
+    <link rel="canonical" href="https://s-mazo.tech/en/proyectos/lms-ia.html">
+    <!-- Versions in other languages -->
+    <link rel="alternate" hreflang="en" href="https://s-mazo.tech/en/proyectos/lms-ia.html">
+    <link rel="alternate" hreflang="es" href="https://s-mazo.tech/proyectos/lms-ia.html">
+    <link rel="alternate" hreflang="x-default" href="https://s-mazo.tech/proyectos/lms-ia.html">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://s-mazo.tech/en/proyectos/lms-ia.html">
+    <meta property="og:title" content="LMS + AI — Learning platform with artificial intelligence">
+    <meta property="og:description" content="A custom replacement for ~20 Moodle instances: Django 5, MySQL and 4 AI modules on Gemini. ~190,000 users in production.">
+    <meta property="og:image" content="https://s-mazo.tech/img/projects/LMS-IA/lms-ia.jpg">
+    <meta property="og:image:width" content="1280">
+    <meta property="og:image:height" content="640">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="es_ES">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="LMS + AI — Learning platform with artificial intelligence">
+    <meta name="twitter:description" content="A custom replacement for ~20 Moodle instances: Django 5, MySQL and 4 AI modules on Gemini. ~190,000 users in production.">
+    <meta name="twitter:image" content="https://s-mazo.tech/img/projects/LMS-IA/lms-ia.jpg">
+    <link id="favicon" rel="icon" type="image/png" href="../../img/Cuervo black.png">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../css/style.css?v=20261018">
+</head>
+<body>
+    <!-- Particles.js Container -->
+    <div id="particles-js"></div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">S-mazo</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+                    <li class="nav-item"><a class="nav-link" href="../index.html#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../index.html#education">Education</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../index.html#experience">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../index.html#skills">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../index.html#interests">Interests</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../index.html#contact">Contact me</a></li>
+                    <li class="nav-item lang-switch d-flex align-items-center ms-lg-2">
+                        <a class="nav-link" href="../../proyectos/lms-ia.html" hreflang="es" lang="es" onclick="try{sessionStorage.setItem('lang-pref','es')}catch(e){}">ES</a>
+                        <span class="lang-sep" aria-hidden="true">|</span>
+                        <a class="nav-link lang-current" href="#" aria-current="true" onclick="return false;">EN</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container content-container">
+
+        <!-- Hero -->
+        <section class="detail-hero text-center">
+            <p class="detail-meta mb-2">// case study — production project (client)</p>
+            <h1 class="display-4">LMS + AI</h1>
+            <p class="lead mt-3">A custom learning platform that replaced a fleet of ~20 Moodle instances, with four artificial intelligence modules on Google Gemini.</p>
+            <div class="tech-tags justify-content-center mt-3">
+                <span class="tech-tag"><i class="devicon-python-plain"></i> Python</span>
+                <span class="tech-tag"><i class="devicon-django-plain"></i> Django 5</span>
+                <span class="tech-tag"><i class="devicon-mysql-plain"></i> MySQL</span>
+                <span class="tech-tag"><i class="fa-brands fa-google"></i> Gemini API</span>
+                <span class="tech-tag"><i class="devicon-nginx-original"></i> Nginx</span>
+                <span class="tech-tag"><i class="fa-solid fa-bolt"></i> SSE</span>
+                <span class="tech-tag"><i class="devicon-linux-plain"></i> Linux</span>
+            </div>
+            <div class="position-relative mt-4">
+                <img src="../../img/projects/LMS-IA/lms-ia.jpg" alt="AI-generated mockup illustrating a question generation dashboard: progress bar, generated question with options and question bank table" class="card-img mt-0" loading="eager">
+                <span class="mockup-badge">AI mockup · not the real UI</span>
+            </div>
+            <p class="detail-note">This image is an <strong>AI-generated mockup</strong>, purely illustrative: it <strong>bears no resemblance to the product's real interface</strong>. It's used to showcase the project while protecting the data, identity and design of the company it was built for.</p>
+        </section>
+
+        <!-- Key figures -->
+        <section id="figures" class="detail-section">
+            <h2 class="text-center mb-4">The platform in figures</h2>
+            <div class="stat-grid">
+                <div class="stat-cell"><span class="stat-value">~190K</span><span class="stat-label">users</span></div>
+                <div class="stat-cell"><span class="stat-value">2,100+</span><span class="stat-label">courses</span></div>
+                <div class="stat-cell"><span class="stat-value">128,778</span><span class="stat-label">questions migrated</span></div>
+                <div class="stat-cell"><span class="stat-value">~20</span><span class="stat-label">Moodles absorbed</span></div>
+                <div class="stat-cell"><span class="stat-value">376</span><span class="stat-label">error tickets closed</span></div>
+                <div class="stat-cell"><span class="stat-value">~3</span><span class="stat-label">months of development</span></div>
+            </div>
+        </section>
+
+        <!-- Overview -->
+        <section id="overview" class="detail-section">
+            <h2 class="text-center mb-4">Overview</h2>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <p>A custom web learning platform (LMS) for a Colombian online education company that prepares candidates for <strong>state exams and public-sector merit competitions</strong>. It combines a classic LMS — courses, lessons, quizzes, progress tracking, live classes — with four artificial intelligence modules, the centerpiece being a <strong>proprietary exam question generation engine</strong> with demanding psychometric standards.</p>
+                    <p>The company operated on <strong>~20 Moodle instances</strong> (one per business line) plus a WordPress/WooCommerce store. The project replaced them with a proprietary platform offering a better student experience (Duolingo-style), full control over content, and AI question generation to scale the question bank without relying on teachers writing items one by one.</p>
+                    <p>The project was developed <strong>directly against production</strong> with real active users, under strict discipline: backup before every edit, verification with a test client after every change, and exhaustive documentation of every fix with root cause and validation.</p>
+                    <p class="detail-note">Note: this is a client project; names, domains and IPs are anonymized. The figures are real, extracted from the operational history.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- What I built -->
+        <section id="scope" class="detail-section">
+            <h2 class="text-center mb-4">What I built</h2>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="detail-panel equal">
+                        <h5><i class="fas fa-graduation-cap"></i> Core LMS</h5>
+                        <p>Email authentication with roles and rotating refresh JWTs. Course → Module → Topic → Lesson hierarchy with clean slug-based URLs and 301 redirects. Enrollments, per-lesson progress, live classes integrated with YouTube and a WooCommerce sales bridge that automatically enrolls each buyer.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="detail-panel equal">
+                        <h5><i class="fas fa-square-poll-vertical"></i> Assessment</h5>
+                        <p>Duolingo-style quizzes with immediate feedback and LaTeX (KaTeX), single-attempt exam simulations with server-synced countdown, 4 question types and an OPEC system that injects custom modules depending on the public-sector job each student is aiming for.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="detail-panel equal">
+                        <h5><i class="fas fa-brain"></i> AI engine (GEA)</h5>
+                        <p>Question generator with a proprietary 4-layer prompting architecture (~50,000 characters of system instruction), schema-forced JSON output, few-shot with approved questions and quantitative quality floors measured against expert material. Variations, cold-start and mandatory human review.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="detail-panel equal">
+                        <h5><i class="fas fa-comments"></i> Multimedia AI chat</h5>
+                        <p>A student assistant with real context from each lesson: text extracted from PDFs with PyPDF2, YouTube video analysis by URL and transcription of proprietary HLS streams via ffmpeg + Gemini, with per-lesson stored context and scheduled synchronization.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="detail-panel equal">
+                        <h5><i class="fas fa-database"></i> Question bank</h5>
+                        <p>Hierarchical categories with code history, multi-bank questions (M2M), bulk XLSX import with row-by-row validation, few-shot variation generation from approved questions and a human approval flow (pending → approved/rejected).</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="detail-panel equal">
+                        <h5><i class="fas fa-screwdriver-wrench"></i> Operations</h5>
+                        <p>Admin panel (Jazzmin) with drag &amp; drop, support dashboard with audited impersonation, automatic error tickets for every 4xx/5xx with traceback, full audit trail of AI API calls (exact prompt, response, actor) and editable system prompts with versioning and diff.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Architecture -->
+        <section id="architecture" class="detail-section">
+            <h2 class="text-center mb-4">Architecture and stack</h2>
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <div class="detail-panel">
+                        <div class="table-responsive">
+                        <table class="detail-table">
+                            <thead>
+                                <tr><th>Layer</th><th>Technology</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>Backend</td><td>Python / Django 5.2 — MTV + custom admin views</td></tr>
+                                <tr><td>API</td><td>Django REST Framework + SimpleJWT (60-min access, 24-h rotating refresh)</td></tr>
+                                <tr><td>Database</td><td>Remote MySQL on dedicated server (strict mode); SQLite in development</td></tr>
+                                <tr><td>AI</td><td>Google Gemini API — two separate keys (generation vs chat), fallback model on 503</td></tr>
+                                <tr><td>Real time</td><td>Server-Sent Events for live progress of AI generations</td></tr>
+                                <tr><td>Media</td><td>ffmpeg — audio extraction from HLS streams for transcription</td></tr>
+                                <tr><td>Server</td><td>Gunicorn with 17 workers under systemd, Nginx + Let's Encrypt as proxy/TLS</td></tr>
+                                <tr><td>Frontend</td><td>Django templates + JS: SortableJS, Select2, KaTeX</td></tr>
+                            </tbody>
+                        </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-lg-10 mx-auto">
+                    <p><strong class="text-info">Notable decisions:</strong> every LLM call isolated in a service layer (never in views or serializers); prompt resolution in 3 levels (course → global → file); asynchronous generation with DB jobs and file locks — deliberately without Celery; question cold-start so the platform never shows "no questions available"; and custom <code>MoodleBcrypt</code>/<code>MoodleMD5</code> hashers that validate migrated passwords and re-hash them to PBKDF2 on first login, without forcing a mass reset.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Data migrations -->
+        <section id="migrations" class="detail-section">
+            <h2 class="text-center mb-4">Data migrations</h2>
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <div class="detail-panel">
+                        <div class="table-responsive">
+                        <table class="detail-table">
+                            <thead>
+                                <tr><th>Migration</th><th>Volume</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>Pilot (1 course)</td><td>196 lessons · 42 quizzes · 762 questions · 246 users with progress</td></tr>
+                                <tr><td>Large instance A</td><td>23 courses · 5,208 lessons · <span class="num">15,556 questions</span> · <span class="num">51,143 enrollments</span></td></tr>
+                                <tr><td>Large instance B</td><td>18 courses · 5,748 lessons · <span class="num">16,512 questions</span></td></tr>
+                                <tr><td>Final mass migration</td><td><span class="num">17 instances · 259 courses · 128,778 questions</span> (with images and feedback) via a unified script</td></tr>
+                                <tr><td>Post-migration sync</td><td>205 users · 459 enrollments · <span class="num">28,877 new progress records</span></td></tr>
+                            </tbody>
+                        </table>
+                        </div>
+                    </div>
+                    <p class="mt-3">Verified quality: <strong>939/939 quizzes exactly matching</strong> in automated verification; a 60/60 sample of explanations identical to the source; backfill of 11,222 explanations recovered from a non-obvious field of the legacy schema; and 326 question↔bank mappings recovered by hand-parsing a 79 MB dump.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Engineering and operations -->
+        <section id="operations" class="detail-section">
+            <h2 class="text-center mb-4">Engineering and operations</h2>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <ul class="list-unstyled">
+                        <li class="mb-3"><i class="fa-solid fa-check" style="color: var(--neon-blue);"></i> <strong>18 foundational plan steps</strong> in ~2 weeks, each with its own E2E suite, followed by <strong>~190 numbered operational changes</strong> with root cause, validation and backup.</li>
+                        <li class="mb-3"><i class="fa-solid fa-check" style="color: var(--neon-blue);"></i> Closed <strong>376 error tickets</strong> until the platform reached zero open errors, including 63 500-errors/day from race conditions solved with idempotent handlers.</li>
+                        <li class="mb-3"><i class="fa-solid fa-check" style="color: var(--neon-blue);"></i> Scaled Gunicorn from 4 to <strong>17 workers</strong> and solved two full-disk crises (100 % → 36 %) by moving <strong>60 GB of media</strong> with symlinks, with no perceptible downtime.</li>
+                        <li class="mb-3"><i class="fa-solid fa-check" style="color: var(--neon-blue);"></i> Improved AI-generated variation quality measurably: prompts from <strong>260 → 404 characters</strong>, at the level of expert samples (444), thanks to quantitative floors based on real medians.</li>
+                        <li class="mb-3"><i class="fa-solid fa-check" style="color: var(--neon-blue);"></i> Implemented repair of malformed LLM JSON (a state machine for quotes, newlines and raw LaTeX) at the 7 parsing points, eliminating an entire class of generation failures.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Role -->
+        <section id="role" class="detail-section text-center">
+            <h2 class="text-center mb-4">My role</h2>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <p>Architecture design, full backend development, mass data migrations, prompt engineering, DevOps and production support — built and operated largely solo, against live production, over ~3 months of intensive work documented change by change.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="text-center pb-5">
+            <a class="back-link" href="../index.html#experience"><span class="cw-arrow">←</span> back to projects</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-center py-4">
+        <span id="age" hidden></span>
+        <p>&copy; <span id="year"></span> Samuel Mazo. All rights reserved. Designed with <i class="fas fa-heart" style="color: var(--neon-red);"></i> and Code.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="../../js/main.js?v=20261018"></script>
+</body>
+</html>

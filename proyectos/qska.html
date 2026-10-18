@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QSKA | Configura tu acceso SSH en segundos desde Windows — Samuel Mazo</title>
+    <meta name="description" content="QSKA (Quick SSH Key Assistant): script de PowerShell que configura tu acceso SSH en Windows en menos de un minuto — alias en ~/.ssh/config con backup, gestión de llaves ed25519 e instalación tipo ssh-copy-id. Open source, MIT.">
+    <meta name="theme-color" content="#0a0a1a">
+    <!-- Enlace canónico -->
+    <link rel="canonical" href="https://s-mazo.tech/proyectos/qska.html">
+    <!-- Versiones en otros idiomas -->
+    <link rel="alternate" hreflang="es" href="https://s-mazo.tech/proyectos/qska.html">
+    <link rel="alternate" hreflang="en" href="https://s-mazo.tech/en/proyectos/qska.html">
+    <link rel="alternate" hreflang="x-default" href="https://s-mazo.tech/proyectos/qska.html">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://s-mazo.tech/proyectos/qska.html">
+    <meta property="og:title" content="QSKA — Configura tu acceso SSH en segundos desde Windows">
+    <meta property="og:description" content="Un solo comando de PowerShell: alias en ~/.ssh/config con backup automático, gestión de llaves ed25519 e instalación de la llave pública en el servidor.">
+    <meta property="og:image" content="https://s-mazo.tech/img/projects/QSKA/qska-console.jpg">
+    <meta property="og:image:width" content="1051">
+    <meta property="og:image:height" content="616">
+    <meta property="og:locale" content="es_ES">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="QSKA — Configura tu acceso SSH en segundos desde Windows">
+    <meta name="twitter:description" content="Un solo comando de PowerShell: alias en ~/.ssh/config con backup automático, gestión de llaves ed25519 e instalación de la llave pública en el servidor.">
+    <meta name="twitter:image" content="https://s-mazo.tech/img/projects/QSKA/qska-console.jpg">
+    <link id="favicon" rel="icon" type="image/png" href="../img/Cuervo black.png">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/style.css?v=20261018">
+</head>
+<body>
+    <!-- Particles.js Container -->
+    <div id="particles-js"></div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">S-mazo</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+                    <li class="nav-item"><a class="nav-link" href="../index.html#about">Información</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../index.html#education">Estudios</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../index.html#experience">Proyectos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../index.html#skills">Habilidades</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../index.html#interests">Intereses</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../index.html#contact">Contáctame</a></li>
+                    <li class="nav-item lang-switch d-flex align-items-center ms-lg-2">
+                        <a class="nav-link lang-current" href="#" aria-current="true" onclick="return false;">ES</a>
+                        <span class="lang-sep" aria-hidden="true">|</span>
+                        <a class="nav-link" href="../en/proyectos/qska.html" hreflang="en" lang="en" onclick="try{sessionStorage.setItem('lang-pref','en')}catch(e){}">EN</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container content-container">
+
+        <!-- Hero -->
+        <section class="detail-hero text-center">
+            <p class="detail-meta mb-2">// herramienta open source — powerShell · ssh · windows</p>
+            <h1 class="display-4">QSKA</h1>
+            <p class="lead mt-3"><strong>Q</strong>uick <strong>S</strong>SH <strong>K</strong>ey <strong>A</strong>ssistant: un script de PowerShell que deja tu acceso SSH listo en menos de un minuto, ejecutado con un solo comando directamente desde internet.</p>
+            <div class="tech-tags justify-content-center mt-3">
+                <span class="tech-tag"><i class="fa-solid fa-terminal"></i> PowerShell</span>
+                <span class="tech-tag"><i class="fa-solid fa-lock"></i> OpenSSH</span>
+                <span class="tech-tag"><i class="fa-brands fa-windows"></i> Windows</span>
+                <span class="tech-tag"><i class="fa-solid fa-key"></i> ed25519</span>
+            </div>
+            <div class="mt-4">
+                <p class="mb-2"><strong>Úsalo así:</strong></p>
+                <p class="code-cmd d-inline-block px-4 py-2">irm https://ssh.s-mazo.tech/ | iex</p>
+            </div>
+            <div class="position-relative mt-4">
+                <img src="../img/projects/QSKA/qska-console.jpg" alt="Ejecución real de QSKA en PowerShell: el script pide IP, puerto, alias y usuario, crea el backup del config, agrega el alias y deja listo el acceso con ssh s-mazo" class="card-img mt-0" loading="eager">
+            </div>
+            <p class="detail-note"><strong>Captura real</strong> de una ejecución del script (con datos de demo). Sin mockups: esto es lo que verías al correrlo en tu máquina.</p>
+        </section>
+
+        <!-- Cifras clave -->
+        <section id="cifras" class="detail-section">
+            <h2 class="text-center mb-4">QSKA en cifras</h2>
+            <div class="stat-grid">
+                <div class="stat-cell"><span class="stat-value">1</span><span class="stat-label">comando para ejecutarlo</span></div>
+                <div class="stat-cell"><span class="stat-value">~1 min</span><span class="stat-label">de inicio a fin</span></div>
+                <div class="stat-cell"><span class="stat-value">4</span><span class="stat-label">datos que te pide</span></div>
+                <div class="stat-cell"><span class="stat-value">9</span><span class="stat-label">pasos de flujo</span></div>
+                <div class="stat-cell"><span class="stat-value">100 %</span><span class="stat-label">código abierto (MIT)</span></div>
+                <div class="stat-cell"><span class="stat-value">0</span><span class="stat-label">software adicional instalado</span></div>
+            </div>
+        </section>
+
+        <!-- Qué hace -->
+        <section id="que-hace" class="detail-section">
+            <h2 class="text-center mb-4">Qué hace por ti</h2>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="detail-panel equal">
+                        <h5><i class="fas fa-gears"></i> Configuración del alias</h5>
+                        <p>Agrega el host a tu <code>~/.ssh/config</code> con HostName, Port y User. Si ya existe un <code>config</code>, crea un backup automático en <code>config.bak</code> antes de tocar nada; si el alias ya existe, te pregunta si quieres reemplazarlo.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="detail-panel equal">
+                        <h5><i class="fas fa-key"></i> Gestión de llaves SSH</h5>
+                        <p>Detecta tus llaves existentes (<code>id_ed25519</code>, <code>id_ecdsa</code>, <code>id_rsa</code>) y te deja elegir cuál usar —con ed25519 como opción por defecto— o crea una llave ed25519 nueva con <code>ssh-keygen</code> si no tienes ninguna.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="detail-panel equal">
+                        <h5><i class="fas fa-cloud-upload-alt"></i> Instalación en el servidor</h5>
+                        <p>El equivalente a <code>ssh-copy-id</code> (que no existe en Windows): conecta por SSH, añade tu llave pública a <code>~/.ssh/authorized_keys</code> del servidor remoto y aplica los permisos correctos (700 a <code>~/.ssh</code>, 600 a <code>authorized_keys</code>).</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="detail-panel equal">
+                        <h5><i class="fas fa-shield-halved"></i> Transparencia y seguridad</h5>
+                        <p>Solo toca tu carpeta <code>~/.ssh</code>. No cambia políticas del sistema, no envía datos a ningún servidor ni instala nada fuera del OpenSSH que ya trae Windows. Código abierto para revisarlo línea por línea antes de ejecutarlo.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="detail-panel equal">
+                        <h5><i class="fas fa-check-double"></i> Validación de entradas</h5>
+                        <p>Valida cada dato antes de escribir: IP o hostname obligatorios, puerto entre 1 y 65535 (Enter = 22), alias con solo letras, números, guiones y guiones bajos. Nada de configs rotos por un typo.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="detail-panel equal">
+                        <h5><i class="fas fa-bolt"></i> Ejecución desde internet</h5>
+                        <p>Pensado para correr con <code>irm | iex</code>: se descarga el script, se ejecuta en memoria y listo. También puedes clonar el repositorio y ejecutarlo localmente si prefieres revisarlo primero.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Flujo -->
+        <section id="flujo" class="detail-section">
+            <h2 class="text-center mb-4">Flujo de ejecución</h2>
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <div class="position-relative">
+                        <img src="../img/projects/QSKA/qska-flujo-es.jpg" alt="Diagrama de flujo de QSKA: 9 pasos desde la descarga del script hasta la verificación de la llave pública instalada en el servidor remoto" class="card-img" loading="lazy">
+                    </div>
+                    <p class="detail-note mt-3">Los 9 pasos completos del script: descarga y ejecución, solicitud de datos, preparación del entorno local, manejo de alias existentes, selección o creación de llave, verificación de la clave pública, conexión y configuración del servidor, resultado, y manejo de excepciones.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Requisitos -->
+        <section id="requisitos" class="detail-section">
+            <h2 class="text-center mb-4">Requisitos</h2>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="detail-panel">
+                        <div class="table-responsive">
+                        <table class="detail-table">
+                            <thead>
+                                <tr><th>Requisito</th><th>Detalle</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>Sistema operativo</td><td>Windows 10/11 (o Windows Server con PowerShell)</td></tr>
+                                <tr><td>PowerShell</td><td>5.1 o superior</td></tr>
+                                <tr><td>OpenSSH Client</td><td>Habilitado en Windows (viene por defecto en Windows 10 1809+)</td></tr>
+                            </tbody>
+                        </table>
+                        </div>
+                    </div>
+                    <p class="mt-3">En Linux/Mac no es necesario: ahí ya existe <code>ssh-copy-id</code> y editar <code>~/.ssh/config</code> es trivial. QSKA existe porque en Windows ese proceso es tedioso.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Uso -->
+        <section id="uso" class="detail-section">
+            <h2 class="text-center mb-4">Cómo usarlo</h2>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <p><strong class="text-info">Opción 1 — desde internet (recomendada):</strong> abre PowerShell y pega <code>irm https://ssh.s-mazo.tech/ | iex</code>. El script se descarga y ejecuta en memoria; en menos de un minuto tendrás tu alias listo y la llave instalada en el servidor.</p>
+                    <p><strong class="text-info">Opción 2 — descarga local:</strong> clona <a href="https://github.com/S-mazo/QSKA" target="_blank" rel="noopener noreferrer" style="color: var(--neon-blue);">github.com/S-mazo/QSKA</a> y ejecuta <code>.\quickconnect.ps1</code>. Ideal si prefieres leer el código antes de correrlo (y deberías, siempre).</p>
+                    <p>Al terminar, solo escribes <code>ssh tu-alias</code> y estás dentro: sin contraseñas, sin IPs largas, sin puertos raros.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Rol -->
+        <section id="rol" class="detail-section text-center">
+            <h2 class="text-center mb-4">Mi rol</h2>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <p>Diseño y desarrollo completo de QSKA: automatización de conexiones SSH en Windows mediante PowerShell, validación de entradas, gestión de alias y llaves SSH, configuración de autenticación por clave pública y publicación mediante un dominio dedicado (<code>ssh.s-mazo.tech</code>) — desarrollado de forma individual, con ejecución simplificada a un solo comando y código abierto bajo licencia MIT.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="text-center pb-5">
+            <a class="back-link" href="../index.html#experience"><span class="cw-arrow">←</span> volver a proyectos</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-center py-4">
+        <span id="age" hidden></span>
+        <p>&copy; <span id="year"></span> Samuel Mazo. Todos los derechos reservados. Diseñado con <i class="fas fa-heart" style="color: var(--neon-red);"></i> y Código.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="../js/main.js?v=20261018"></script>
+</body>
+</html>

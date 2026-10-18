@@ -8,6 +8,23 @@
     <meta name="theme-color" content="#0a0a1a">
     <!-- Enlace canónico: consolida s-mazo.tech / www.s-mazo.tech / s-mazo.github.io/Portafolio -->
     <link rel="canonical" href="https://s-mazo.tech/">
+    <!-- Versiones del sitio en otros idiomas -->
+    <link rel="alternate" hreflang="es" href="https://s-mazo.tech/">
+    <link rel="alternate" hreflang="en" href="https://s-mazo.tech/en/">
+    <link rel="alternate" hreflang="x-default" href="https://s-mazo.tech/">
+    <!-- Detección automática de idioma: navegadores en inglés van a /en/ (salvo que el usuario haya elegido manualmente) -->
+    <script>
+    (function () {
+        try {
+            if (sessionStorage.getItem('lang-pref')) return;
+            var lang = (navigator.language || navigator.userLanguage || '').toLowerCase();
+            if (lang.indexOf('en') === 0) {
+                sessionStorage.setItem('lang-pref', 'en');
+                window.location.replace('en/');
+            }
+        } catch (e) { /* sessionStorage no disponible: no redirigir */ }
+    })();
+    </script>
     <!-- Datos estructurados: panel de conocimiento de Google (foto = el cuervo) -->
     <script type="application/ld+json">
     {
@@ -49,7 +66,7 @@
     <!-- Devicon (iconos de tecnologías) -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/style.css?v=20261012">
+    <link rel="stylesheet" href="css/style.css?v=20261018">
 </head>
 <body>
     <div id="crow-overlay" role="link" tabindex="0" aria-label="GitHub de Samuel Mazo (S-mazo)"><svg viewBox="0 0 1257.000000 1287.000000">
@@ -79,13 +96,18 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
+                <ul class="navbar-nav ms-auto align-items-lg-center">
                     <li class="nav-item"><a class="nav-link" href="#about">Información</a></li>
                     <li class="nav-item"><a class="nav-link" href="#education">Estudios</a></li>
                     <li class="nav-item"><a class="nav-link" href="#experience">Proyectos</a></li>
                     <li class="nav-item"><a class="nav-link" href="#skills">Habilidades</a></li>
                     <li class="nav-item"><a class="nav-link" href="#interests">Intereses</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contact">Contáctame</a></li>
+                    <li class="nav-item lang-switch d-flex align-items-center ms-lg-2">
+                        <a class="nav-link lang-current" href="#" aria-current="true" onclick="return false;">ES</a>
+                        <span class="lang-sep" aria-hidden="true">|</span>
+                        <a class="nav-link" href="en/" hreflang="en" lang="en" onclick="try{sessionStorage.setItem('lang-pref','en')}catch(e){}">EN</a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -216,6 +238,25 @@
                             <p class="cw-desc">Adapta el aprendizaje al nivel educativo de cada usuario, propone retos prácticos y gestiona puntuaciones; un agente de IA (Gemini) genera las misiones en un flujo n8n.</p>
                             <p class="cw-tags">n8n · gemini api · telegram</p>
                             <span class="cw-cta"><span class="cw-arrow">→</span> ver código en GitHub ↗</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-6">
+                    <a id="qska-card" class="card-window" href="proyectos/qska.html" aria-label="QSKA: script de PowerShell que configura el acceso SSH en Windows en segundos (página del proyecto)">
+                        <div class="card-window-screen">
+                            <img src="img/projects/QSKA/qska-console.jpg" alt="Ejecución real de QSKA en PowerShell: el script configura el alias SSH, gestiona la llave ed25519 e instala la llave pública en el servidor" loading="lazy">
+                            <span class="cw-corner tl"></span><span class="cw-corner tr"></span><span class="cw-corner bl"></span><span class="cw-corner br"></span>
+                        </div>
+                        <div class="card-window-body">
+                            <div class="cw-head">
+                                <h3 class="cw-title">QSKA</h3>
+                                <span class="cw-badge repo">REPO</span>
+                            </div>
+                            <hr class="cw-rule">
+                            <h5 class="cw-oneliner">Acceso SSH en Windows listo en menos de un minuto, con un solo comando.</h5>
+                            <p class="cw-desc">Quick SSH Key Assistant: pregunta IP, puerto, alias y usuario, los agrega a tu ~/.ssh/config (con backup automático), gestiona tu llave ed25519 —o crea una nueva— y la instala en el servidor: el "ssh-copy-id" que Windows no trae.</p>
+                            <p class="cw-tags">powershell · ssh · openssh · windows</p>
+                            <span class="cw-cta"><span class="cw-arrow">→</span> ver cómo funciona</span>
                         </div>
                     </a>
                 </div>
@@ -366,6 +407,15 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="skill-group">
+                        <h5 class="skill-group-title"><i class="fas fa-language"></i> Idiomas</h5>
+                        <div class="tech-tags">
+                            <span class="tech-tag"><i class="fa-solid fa-flag"></i> Español <span class="lang-level">— nativo</span></span>
+                            <span class="tech-tag"><i class="fa-solid fa-language"></i> Inglés <span class="lang-level">— avanzado (C1)</span></span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -423,6 +473,6 @@
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script src="js/main.js?v=20261012"></script>
+    <script src="js/main.js?v=20261018"></script>
 </body>
 </html>

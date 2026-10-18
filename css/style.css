@@ -701,3 +701,41 @@ button:focus-visible,
     padding: 4px 10px;
     box-shadow: 0 0 12px rgba(0, 194, 255, 0.6);
 }
+
+/* Selector de idioma ES | EN en el navbar */
+.lang-switch .nav-link {
+    padding: 0.5rem 0.35rem;
+    letter-spacing: 1px;
+}
+
+.lang-switch .lang-sep {
+    color: rgba(255, 255, 255, 0.35);
+    user-select: none;
+}
+
+.lang-switch .lang-current {
+    color: var(--neon-blue) !important;
+    font-weight: 700;
+    opacity: 1;
+    cursor: default;
+}
+
+/* Nivel de idioma dentro de los tech-tags (texto muted) */
+.lang-level {
+    font-size: 0.82em;
+    color: #8b98ad;
+    margin-left: 0.35em;
+}
+
+/* Bloque de comando destacado (p. ej. irm | iex) */
+.code-cmd {
+    font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 1.05rem;
+    color: var(--neon-blue);
+    background-color: rgba(0, 0, 0, 0.45);
+    border: 1px solid var(--neon-blue);
+    box-shadow: 0 0 15px rgba(0, 194, 255, 0.25);
+    border-radius: 6px;
+    margin: 0;
+    user-select: all;
+}
